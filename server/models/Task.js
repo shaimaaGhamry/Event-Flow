@@ -1,6 +1,6 @@
-const mongoose = require('mongoose');
+const { Schema, model } = require('mongoose');
 
-const taskSchema = new mongoose.Schema({
+const taskSchema = new Schema({
   title: {
     type: String,
     required: true
@@ -10,7 +10,7 @@ const taskSchema = new mongoose.Schema({
     required: false
   },
   assignedTo: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'User',
     required: true
   },
@@ -23,9 +23,10 @@ const taskSchema = new mongoose.Schema({
     default: false
   },
   event: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'Event'
   }
 });
 
-module.exports = mongoose.model('Task', taskSchema);
+const Task = model('Task', taskSchema);
+module.exports = Task;

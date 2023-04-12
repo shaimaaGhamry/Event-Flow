@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-// import schema from Book.js
+// import schema from Event.js
 const eventSchema = require('./Event');
 
 const userSchema = new Schema(
@@ -22,19 +22,21 @@ const userSchema = new Schema(
       required: true,
     },
     pendingEvents: [{
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'Event'
     }],
 
     acceptedEvents: [{
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'Event'
     }],
 
     tasks: [{
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'Task'
     }], 
+  },
+  { 
   // set this to use virtual below
   
     toJSON: {
@@ -62,4 +64,13 @@ userSchema.methods.isCorrectPassword = async function (password) {
 
 const User = model('User', userSchema);
 
+// User.create(
+//   {
+//     userName: 'Buky',
+//     email: "bukyade@gmail.ca",
+//     password: 'Password@123'
+
+//   },
+//   (err) => (err ? console.error(err) : console.log('Created new document'))
+// )
 module.exports = User;
