@@ -15,7 +15,7 @@ const taskSchema = new Schema({
     required: true
   },
   deadline: {
-    type: Date,
+    type: String,
     required: false
   },
   completed: {
