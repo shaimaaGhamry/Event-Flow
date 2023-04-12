@@ -1,6 +1,6 @@
 const User = require('./User');
-const User = require('./Event');
-const User = require('./Task');
+const Event = require('./Event');
+const Task = require('./Task');
 
 
 

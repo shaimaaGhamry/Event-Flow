@@ -7,5 +7,5 @@ mongoose.connect(
     useUnifiedTopology: true,
   }
 );
-
+// Export connection 
 module.exports = mongoose.connection;
