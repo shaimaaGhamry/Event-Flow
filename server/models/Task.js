@@ -18,15 +18,17 @@ const taskSchema = new Schema({
     type: String,
     required: false
   },
-  completed: {
-    type: Boolean,
-    default: false
+  status: {
+    type: String,
+    enum: ['pending', 'completed'],
+    default: 'pending',
   },
   event: {
     type: Schema.Types.ObjectId,
-    ref: 'Event'
+    ref: 'Event',
+    required: true
   }
 });
-
 const Task = model('Task', taskSchema);
-module.exports = Task;
+
+module.exports = Task; 

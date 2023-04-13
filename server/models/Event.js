@@ -7,7 +7,7 @@ const eventSchema = new Schema({
   },
   description: {
     type: String,
-    required: true,
+    required: false
   },
   startDate: {
     type: String,
@@ -19,11 +19,12 @@ const eventSchema = new Schema({
   },
   type: {
     type: String,
-    required: true,
+   required: true
   },
-  isPrivate: {
-    type: Boolean,
-    default: false,
+
+  isPrivate:{
+    type:Boolean,
+    default:false
   },
   location: {
     type: String,
@@ -31,28 +32,22 @@ const eventSchema = new Schema({
   },
   createdBy: {
     type: Schema.Types.ObjectId,
-    ref: "User",
+    ref: 'User'
   },
-  attendees: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-    },
-  ],
+  attendees: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }],
 
-  invitees: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-    },
-  ],
+  invitees: [{
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }],
 
-  tasks: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Task",
-    },
-  ],
+  tasks: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Task'
+  }]
 });
 
 const Event = model("Event", eventSchema);

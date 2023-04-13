@@ -1,9 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-// import schema from Event.js
-const eventSchema = require('./Event');
-
 const userSchema = new Schema(
   {
     userName: {
@@ -36,9 +33,8 @@ const userSchema = new Schema(
       ref: 'Task'
     }], 
   },
-  { 
-  // set this to use virtual below
-  
+   // set this to use virtual below
+  {
     toJSON: {
       virtuals: true,
     },
@@ -64,13 +60,4 @@ userSchema.methods.isCorrectPassword = async function (password) {
 
 const User = model('User', userSchema);
 
-// User.create(
-//   {
-//     userName: 'Buky',
-//     email: "bukyade@gmail.ca",
-//     password: 'Password@123'
-
-//   },
-//   (err) => (err ? console.error(err) : console.log('Created new document'))
-// )
 module.exports = User;
