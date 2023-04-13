@@ -26,6 +26,9 @@ function NavTabs({ currentPage, handlePageChange }) {
                         <a class="button is-light" href="./mytasks">
                             My Tasks
                         </a>
+                        <a class="button is-light" href="./testing">
+                            test environment
+                        </a>
                     </div>
                 </div>
 
