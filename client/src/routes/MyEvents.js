@@ -19,11 +19,11 @@ const MyEvents = () => {
   return (
     <div className="main events-main">
       <div class="events">
-        <div class="row pending">
+        <div class="row event-row pending">
           <div class="event-list"><p><span class="event-list">PENDING INVITES</span></p></div>
           {pendingInvites.map((app) => <App type={app.type} title={app.title} owner={app.owner} sdate={app.sdate} edate={app.edate} scope="private" />)}
         </div>
-        <div class="row attending">
+        <div class="row event-row attending">
           <div class="event-list"><p><span class="event-list">ATTENDING EVENTS</span></p></div>
           {attendingEvents.map((app) => <App type={app.type} title={app.title} owner={app.owner} sdate={app.sdate} edate={app.edate} scope={app.scope} />)}
           {expiredEvents.map((app) => <App type={app.type} title={app.title} owner={app.owner} sdate={app.sdate} edate={app.edate} scope="expired" />)}

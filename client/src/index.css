@@ -54,7 +54,7 @@ code {
   justify-content: center;
 }
 
-.row {
+.event-row {
   border-style: solid;
   border-width: 1.5px;
   border-radius: 1rem;
