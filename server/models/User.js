@@ -1,9 +1,6 @@
 const { Schema, model } = require('mongoose');
 const bcrypt = require('bcrypt');
 
-// import schema from Book.js
-const eventSchema = require('./Event');
-
 const userSchema = new Schema(
   {
     userName: {
@@ -22,21 +19,22 @@ const userSchema = new Schema(
       required: true,
     },
     pendingEvents: [{
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'Event'
     }],
 
     acceptedEvents: [{
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'Event'
     }],
 
     tasks: [{
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'Task'
     }], 
-  // set this to use virtual below
-  
+  },
+   // set this to use virtual below
+  {
     toJSON: {
       virtuals: true,
     },
