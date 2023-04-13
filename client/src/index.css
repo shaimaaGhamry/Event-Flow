@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.navbar-item img {
+  max-height: 6rem !important;
+}
+
+.space-nav {
+  width: 4rem;
+}
+
+.navbar {
+  background-color: teal !important;
+}
