@@ -1,6 +1,15 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
+  
+  
+  
+
+  # Set up an Auth type to handle returning data from a profile creating or user login
+  type Auth {
+    token: ID!
+    profile: User
+  }
 
 
 type Event {
@@ -59,10 +68,13 @@ type Query {
   events: [Event!]!
   
   task(id: ID!): Task
-  user(id: ID!): User
   tasks: [Task]!
+  
   users: [User]!
+  user(userId: ID!): User
+    
 }
+
 
 type Mutation {
   createEvent(title: String!, description: String!, startDate: String!, endDate: String!, location: String!): Event!
@@ -76,11 +88,15 @@ type Mutation {
   createTask(title: String!, description: String!, assignedTo: ID!, deadline: String!, eventId: ID): Task!
   updateTask(id: ID!, title: String, description: String, assignedTo: ID, deadline: String, completed: Boolean, eventId: ID): Task!
   deleteTask(id: ID!): Boolean!
-  createUser(firstName: String!, lastName: String!, email: String!, password: String!): User!
-  updateUser(id: ID!, firstName: String, lastName: String, email: String, password: String): User!
+  
+  addUser(userName: String!, email: String!, password: String!): User
+  login(email: String!, password: String!): Auth
+
+  updateUser(id: ID!, userName: String, email: String, password: String): User!
   deleteUser(id: ID!): Boolean!
+ 
 }
 `;
 
 
-module.exports =typeDefs;
+module.exports = typeDefs;

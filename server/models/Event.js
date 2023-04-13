@@ -3,21 +3,21 @@ const { Schema, model } = require("mongoose");
 const eventSchema = new Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
     type: String,
     required: false
   },
   startDate: {
-    type: Date,
-    required: true
+    type: String,
+    required: true,
   },
   endDate: {
-    type: Date,
-    required: true
+    type: String,
+    required: true,
   },
-  type:{
+  type: {
     type: String,
    required: true
   },
@@ -28,7 +28,7 @@ const eventSchema = new Schema({
   },
   location: {
     type: String,
-    required: false
+    required: false,
   },
   createdBy: {
     type: Schema.Types.ObjectId,
