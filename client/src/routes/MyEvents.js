@@ -17,15 +17,25 @@ const MyEvents = () => {
     { title: "YZ", type: "Baby Shower", owner: "Albus Dumbeldore", sdate: "15 Apr 2023", edate: "15 Apr 2023", scope: "public" },
   ];
   return (
-    <div className="main">
-      <div class="row pending">
-        <div class="event-list"><p><span class="event-list">PENDING INVITES</span></p></div>
-        {pendingInvites.map((app) => <App type={app.type} title={app.title} owner={app.owner} sdate={app.sdate} edate={app.edate} />)}
+    <div className="main events-main">
+      <div class="events">
+        <div class="row pending">
+          <div class="event-list"><p><span class="event-list">PENDING INVITES</span></p></div>
+          {pendingInvites.map((app) => <App type={app.type} title={app.title} owner={app.owner} sdate={app.sdate} edate={app.edate} scope="private" />)}
+        </div>
+        <div class="row attending">
+          <div class="event-list"><p><span class="event-list">ATTENDING EVENTS</span></p></div>
+          {attendingEvents.map((app) => <App type={app.type} title={app.title} owner={app.owner} sdate={app.sdate} edate={app.edate} scope={app.scope} />)}
+          {expiredEvents.map((app) => <App type={app.type} title={app.title} owner={app.owner} sdate={app.sdate} edate={app.edate} scope="expired" />)}
+        </div>
       </div>
-      <div class="row attending">
-        <div class="event-list"><p><span class="event-list">ATTENDING EVENTS</span></p></div>
-        {attendingEvents.map((app) => <App type={app.type} title={app.title} owner={app.owner} sdate={app.sdate} edate={app.edate} scope={app.scope} />)}
-        {expiredEvents.map((app) => <App type={app.type} title={app.title} owner={app.owner} sdate={app.sdate} edate={app.edate} scope="expired" />)}
+      <div class="actions">
+          <a class="div-button" href="createeventlink">
+        <div class="create-button">
+            <p>Create</p>
+            <p>New Event</p>
+        </div>
+        </a>
       </div>
     </div>
   );
