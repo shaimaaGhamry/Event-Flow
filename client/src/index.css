@@ -109,6 +109,7 @@ span.event-list {
   width: 8rem;
   height: 8rem;
   text-align: center;
+  font-weight: bold;
 }
 
 a.div-button {

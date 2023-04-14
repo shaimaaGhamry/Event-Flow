@@ -2,16 +2,17 @@ import React from 'react';
 
 const Home = () => {
   const publicEvents = [
-    { title: "ABC", type: "Baby Shower", owner: "Albus Dumbeldore", sdate: "15 Apr 2023", edate: "15 Apr 2023" },
-    { title: "DEF", type: "Graduation", owner: "Beatrix Lestrange", sdate: "20 Apr 2023", edate: "20 Apr 2023" },
-    { title: "GHI", type: "Trip", owner: "Colin Creevey", sdate: "28 Apr 2023", edate: "5 May 2023" },
-    { title: "JKL", type: "Birthday", owner: "Draco Malfoy", sdate: "5 May 2023", edate: "5 May 2023" },
+    { title: "ABC", type: "Baby Shower", owner: "Albus Dumbeldore", sdate: "15 Apr 2023", edate: "15 Apr 2023", id: "1" },
+    { title: "DEF", type: "Graduation", owner: "Beatrix Lestrange", sdate: "20 Apr 2023", edate: "20 Apr 2023", id: "2" },
+    { title: "GHI", type: "Trip", owner: "Colin Creevey", sdate: "28 Apr 2023", edate: "5 May 2023", id: "3" },
+    { title: "JKL", type: "Birthday", owner: "Draco Malfoy", sdate: "5 May 2023", edate: "5 May 2023", id: "4" },
   ];
   return (
     <div className="main events-main">
       <div class="events">
+      <div class="title is-4">Events that you might be interested in:</div>
         <div class="row">
-          {publicEvents.map((app) => <App type={app.type} title={app.title} owner={app.owner} sdate={app.sdate} edate={app.edate} scope="public" />)}
+          {publicEvents.map((app) => <App type={app.type} title={app.title} owner={app.owner} sdate={app.sdate} edate={app.edate} id={app.id} scope="public" />)}
         </div>
       </div>
       <div class="actions">
@@ -29,6 +30,7 @@ const Home = () => {
 function App(props) {
   return (
     <div class="card">
+      <a href={`./events/${props.id}`}>
       <div class={props.scope}>
         <div class="card-content">
           <div class="media">
@@ -47,6 +49,7 @@ function App(props) {
           </div>
         </div>
       </div>
+      </a>
     </div>
   )
 }
