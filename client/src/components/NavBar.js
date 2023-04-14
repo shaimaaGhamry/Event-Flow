@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { Link } from "react-router-dom";
+
+
 function NavTabs({ currentPage, handlePageChange }) {
     return (
         <nav class="navbar" role="navigation" aria-label="main navigation" >
@@ -35,12 +38,14 @@ function NavTabs({ currentPage, handlePageChange }) {
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
-                            <a class="button is-primary">
-                                <strong>Sign up</strong>
-                            </a>
-                            <a class="button is-light">
-                                Log in
-                            </a>
+                            <Link to='/SignUp'>
+                                <a class="button is-primary">
+                                  <strong>Sign up</strong>
+                               </a>
+                            </Link>
+                            <Link to='/LoginForm'>
+                               <a class="button is-light">Log in</a>
+                            </Link>
                         </div>
                     </div>
                 </div>
