@@ -52,6 +52,7 @@ code {
   padding-right: 1rem;
   display:flex;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .event-row {
@@ -95,8 +96,12 @@ span.event-list {
   background-color: rgb(173, 251, 194) !important;
 }
 
-.expired {
+.expired, .true {
   background-color: rgb(210, 210, 210) !important;
+}
+
+.false {
+  background-color: rgb(254, 229, 168) !important;
 }
 
 .create-button {
@@ -114,4 +119,8 @@ span.event-list {
 
 a.div-button {
   color: var(--is-light);
+}
+
+details > summary::marker {
+  content: "";
 }
