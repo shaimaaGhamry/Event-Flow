@@ -3,6 +3,8 @@ import NavTabs from './components/NavBar';
 import Home from './routes/Home';
 import MyEvents from './routes/MyEvents';
 import MyTasks from './routes/MyTasks';
+import SignUp from './components/SignUp';
+import LoginForm from './components/LoginForm';
 // FOR TESTING ONLY - DELETE LATER (also delete Route path - line 23)
 import TestEnv from './routes/testEnv';
 
@@ -21,6 +23,8 @@ const App = () => {
        <Route path="/myevents" element={<MyEvents />} />
        <Route path="/mytasks" element={<MyTasks />} /> 
        <Route path="/testing" element={<TestEnv />} />
+       <Route path="/signup" element={<SignUp />} />
+       <Route path="/loginform" element={<LoginForm />} />
      </Routes>
     </div>
   );
