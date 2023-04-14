@@ -56,13 +56,6 @@ const CreateEvent = () => {
                                 <option>Wedding</option>
                             </select>
                         </div>
-                        <div class="select is-normal is-primary">
-                            <select>
-                                <option>Event Scope</option>
-                                <option>Public</option>
-                                <option>Private</option>
-                            </select>
-                        </div>
                     </div>
                     <div class="column">
                         <div class="calendar">
@@ -72,6 +65,18 @@ const CreateEvent = () => {
                         <div class="calendar">
                             <label for="date" className='end-date'>End Date</label>
                             <input type="date" data-display-mode="inline" data-is-range="true" data-close-on-select="false"></input>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <label class="radio">
+                                <input type="radio" name="public"></input>
+                                Public
+                            </label>
+                            <label class="radio">
+                                <input type="radio" name="private"></input>
+                                Private
+                            </label>
                         </div>
                     </div>
                     <div class="column">

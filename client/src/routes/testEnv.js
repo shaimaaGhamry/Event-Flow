@@ -1,14 +1,13 @@
 import React from 'react';
 
-
-import CreateEvent from '../components/CreateEvent';
+import CreateTask from '../components/CreateTask';
 
 
 const TestEnv = () => {
   return (
     <div>
       <p>Test Environment</p>
-    <CreateEvent/>
+    <CreateTask/>
   </div>
   )
 }
