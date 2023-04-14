@@ -1,14 +1,14 @@
 import React from 'react';
 
 
-import LoginForm from '../components/LoginForm';
+import CreateEvent from '../components/CreateEvent';
 
 
 const TestEnv = () => {
   return (
     <div>
       <p>Test Environment</p>
-    <LoginForm/>
+    <CreateEvent/>
   </div>
   )
 }
