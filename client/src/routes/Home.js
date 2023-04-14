@@ -9,15 +9,15 @@ const Home = () => {
   ];
   return (
     <div className="main events-main">
-      <div class="events">
-      <div class="title is-4">Events that you might be interested in:</div>
-        <div class="row">
+      <div className="events">
+      <div className="title is-4">Events that you might be interested in:</div>
+        <div className="row">
           {publicEvents.map((app) => <App type={app.type} title={app.title} owner={app.owner} sdate={app.sdate} edate={app.edate} id={app.id} scope="public" />)}
         </div>
       </div>
-      <div class="actions">
-          <a class="div-button" href="createeventlink">
-        <div class="create-button">
+      <div className="actions">
+          <a className="div-button" href="createeventlink">
+        <div className="create-button">
             <p>Create</p>
             <p>New Event</p>
         </div>
@@ -29,22 +29,22 @@ const Home = () => {
 
 function App(props) {
   return (
-    <div class="card">
+    <div className="card">
       <a href={`./events/${props.id}`}>
-      <div class={props.scope}>
-        <div class="card-content">
-          <div class="media">
+      <div className={props.scope}>
+        <div className="card-content">
+          <div className="media">
             {/*       === For event type image ===   
-          <div class="media-left">
-            <figure class="image is-48x48">
+          <div className="media-left">
+            <figure className="image is-48x48">
               <img src="img-link" alt="Placeholder image"></img>
             </figure>
           </div> */}
-            <div class="media-content">
-              <p class="title is-4">{props.title}</p>
-              <p class="subtitle is-6">({props.type})</p>
-              <p class="subtitle is-6">Event Owner: <b>{props.owner}</b></p>
-              <p class="subtitle is-6"> Starts on <b>{props.sdate}</b> and ends on <b>{props.edate}</b></p>
+            <div className="media-content">
+              <p className="title is-4">{props.title}</p>
+              <p className="subtitle is-6">({props.type})</p>
+              <p className="subtitle is-6">Event Owner: <b>{props.owner}</b></p>
+              <p className="subtitle is-6"> Starts on <b>{props.sdate}</b> and ends on <b>{props.edate}</b></p>
             </div>
           </div>
         </div>

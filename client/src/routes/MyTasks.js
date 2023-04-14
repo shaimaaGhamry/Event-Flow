@@ -13,15 +13,15 @@ const MyTasks = () => {
   ];
   return (
     <div className="main events-main">
-      <div class="events">
-        <div class="row">
+      <div className="events">
+        <div className="row">
           {taskList.map((app) => <App description={app.description} event={app.event} title={app.title} owner={app.owner} date={app.date} completed={app.completed} id={app.id} />)}
           {completedTasks.map((app) => <App description={app.description} event={app.event} title={app.title} owner={app.owner} date={app.date} completed={app.completed} id={app.id} />)}
         </div>
       </div>
-      <div class="actions">
-        <a class="div-button" href="createeventlink">
-          <div class="create-button">
+      <div className="actions">
+        <a className="div-button" href="createeventlink">
+          <div className="create-button">
             <p>Create</p>
             <p>New Task</p>
           </div>
@@ -33,30 +33,30 @@ const MyTasks = () => {
 
 function App(props) {
   return (
-    <div class="card">
+    <div className="card">
       <a>
-        <div class={props.completed}>
-          <div class="card-content">
-            <div class="media">
+        <div className={props.completed}>
+          <div className="card-content">
+            <div className="media">
               {/*       === For event type image ===   
-          <div class="media-left">
-            <figure class="image is-48x48">
+          <div className="media-left">
+            <figure className="image is-48x48">
               <img src="img-link" alt="Placeholder image"></img>
             </figure>
           </div> */}
-              <div class="media-content">
+              <div className="media-content">
                 <details>
                   <summary>
-                    <p class="title is-4">{props.title}</p>
-                    <p class="subtitle is-6"> To be completed by <b>{props.date}</b></p>
+                    <p className="title is-4">{props.title}</p>
+                    <p className="subtitle is-6"> To be completed by <b>{props.date}</b></p>
                   </summary>
-                    <p class="subtitle is-6">for <b>{props.event}</b></p>
-                    <p class="subtitle is-6">Details: ({props.description})</p>
-                    <p class="subtitle is-6">Assigned by <b>{props.owner}</b></p>
+                    <p className="subtitle is-6">for <b>{props.event}</b></p>
+                    <p className="subtitle is-6">Details: ({props.description})</p>
+                    <p className="subtitle is-6">Assigned by <b>{props.owner}</b></p>
                 </details>
               </div>
-              <div class="buttons">
-                <a class={"button is-primary "+props.id}>
+              <div className="buttons">
+                <a className={"button is-primary "+props.id}>
                   <strong>Completed</strong>
                 </a>
               </div>
