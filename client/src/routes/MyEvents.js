@@ -31,16 +31,14 @@ const MyEvents = () => {
           {expiredEvents.map((app) => <App type={app.type} title={app.title} owner={app.owner} sdate={app.sdate} edate={app.edate} scope="expired" />)}
         </div>
       </div>
-      <Link to='/CreateEvent'>
         <div className="actions">
-          <a className="div-button">
+          <a className="div-button" href="/CreateEvent">
             <div className="create-button">
               <p>Create</p>
               <p>New Event</p>
             </div>
           </a>
         </div>
-      </Link>
     </div>
   );
 }

@@ -16,7 +16,7 @@ const Home = () => {
         </div>
       </div>
       <div className="actions">
-          <a className="div-button" href="createeventlink">
+          <a className="div-button" href="/CreateEvent">
         <div className="create-button">
             <p>Create</p>
             <p>New Event</p>

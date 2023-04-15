@@ -2,51 +2,59 @@ import React from 'react';
 
 import { Link } from "react-router-dom";
 
+const isLoggedIn = true;
 
 function NavTabs({ currentPage, handlePageChange }) {
     return (
-        <nav class="navbar" role="navigation" aria-label="main navigation" >
-            <div class="navbar-brand">
-                <a class="navbar-item" href="./">
-                    <img src="./logo192.png" class="nav-logo"></img>
+        <nav className="navbar" role="navigation" aria-label="main navigation" >
+            <div className="navbar-brand">
+                <a className="navbar-item" href="./">
+                    <img src="./logo192.png" className="nav-logo"></img>
                 </a>
 
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </a>
             </div>
 
-            <div class="space-nav">&nbsp;</div>
+            <div className="space-nav">&nbsp;</div>
 
-            <div id="navbarBasicExample" class="navbar-menu">
-                <div class="navbar-start">
-                    <div class="buttons">
-                        <a class="button is-light" href="./myevents">
+            <div id="navbarBasicExample" className="navbar-menu">
+                <div className="navbar-start">
+                    <div className="buttons">
+                        <a className="button is-light" href="./myevents">
                             My Events
                         </a>
-                        <a class="button is-light" href="./mytasks">
+                        <a className="button is-light" href="./mytasks">
                             My Tasks
                         </a>
-                        <a class="button is-light" href="./testing">
+                        <a className="button is-light" href="./testing">
                             test environment
                         </a>
                     </div>
                 </div>
 
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <div class="buttons">
-                            <Link to='/SignUp'>
-                                <a class="button is-primary">
-                                  <strong>Sign up</strong>
-                               </a>
-                            </Link>
-                            <Link to='/LoginForm'>
-                               <a class="button is-light">Log in</a>
-                            </Link>
-                        </div>
+                <div className="navbar-end">
+                    <div className="navbar-item">
+                        {isLoggedIn
+                            ? <div className="buttons">
+                                <span className='username'>username</span>
+                                <a className="button is-light">Log out</a>
+                            </div>
+                            : <div className="buttons">
+                                <Link to='/SignUp'>
+                                    <a className="button is-primary">
+                                        <strong>Sign up</strong>
+                                    </a>
+                                </Link>
+                                <Link to='/LoginForm'>
+                                    <a className="button is-light">Log in</a>
+                                </Link>
+                            </div>
+                        }
+
                     </div>
                 </div>
             </div>

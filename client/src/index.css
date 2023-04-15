@@ -138,3 +138,13 @@ details > summary::marker {
   font-weight: bold;
   border-radius: 10vh;
 }
+
+.buttons a {
+  margin-right: 0.5rem;
+}
+
+.username {
+  font-weight: bold;
+  color: var(--is-light);
+  margin-right: 1rem;
+}
