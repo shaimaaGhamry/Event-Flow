@@ -3,6 +3,7 @@ import NavTabs from './components/NavBar';
 import Home from './routes/Home';
 import MyEvents from './routes/MyEvents';
 import MyTasks from './routes/MyTasks';
+import Event from './routes/Event';
 import SignUp from './components/SignUp';
 import LoginForm from './components/LoginForm';
 import CreateEvent from './components/CreateEvent';
@@ -24,6 +25,7 @@ const App = () => {
        <Route path="/" element={<Home />} />
        <Route path="/myevents" element={<MyEvents />} />
        <Route path="/mytasks" element={<MyTasks />} /> 
+       <Route path="/event/:id" element={<Event />} />
        <Route path="/testing" element={<TestEnv />} />
        <Route path="/signup" element={<SignUp />} />
        <Route path="/loginform" element={<LoginForm />} />

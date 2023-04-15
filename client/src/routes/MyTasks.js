@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
 
 const MyTasks = () => {
@@ -22,12 +21,12 @@ const MyTasks = () => {
         </div>
       </div>
         <div className="actions">
-          <a className="div-button" href="/CreateEvent">
+          <Link to="/CreateTask" className="div-button">
             <div className="create-button">
               <p>Create</p>
               <p>New Task</p>
             </div>
-          </a>
+          </Link>
         </div>
     </div>
   );

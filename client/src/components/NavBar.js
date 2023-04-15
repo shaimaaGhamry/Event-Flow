@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Link } from "react-router-dom";
 
 const isLoggedIn = true;
@@ -8,9 +7,9 @@ function NavTabs({ currentPage, handlePageChange }) {
     return (
         <nav className="navbar" role="navigation" aria-label="main navigation" >
             <div className="navbar-brand">
-                <a className="navbar-item" href="./">
+                <Link to="./" className="navbar-item">
                     <img src="./logo192.png" className="nav-logo"></img>
-                </a>
+                </Link>
 
                 <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
                     <span aria-hidden="true"></span>
@@ -56,7 +55,9 @@ function NavTabs({ currentPage, handlePageChange }) {
                         {isLoggedIn
                             ? <div className="buttons">
                                 <span className='username'>username</span>
-                                <a className="button is-light">Log out</a>
+                                <Link to="" >
+                                    <a className="button is-light">Log out</a>
+                                </Link>
                             </div>
                             : <div className="buttons">
                                 <Link to='/SignUp'>
