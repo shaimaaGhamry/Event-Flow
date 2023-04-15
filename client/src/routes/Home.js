@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const publicEvents = [
@@ -10,18 +11,18 @@ const Home = () => {
   return (
     <div className="main events-main">
       <div className="events">
-      <div className="title is-4">Events that you might be interested in:</div>
+        <div className="title is-4">Events that you might be interested in:</div>
         <div className="row">
           {publicEvents.map((app) => <App type={app.type} title={app.title} owner={app.owner} sdate={app.sdate} edate={app.edate} id={app.id} scope="public" />)}
         </div>
       </div>
       <div className="actions">
-          <a className="div-button" href="/CreateEvent">
-        <div className="create-button">
+        <Link to="/CreateEvent" className="div-button">
+          <div className="create-button">
             <p>Create</p>
             <p>New Event</p>
-        </div>
-        </a>
+          </div>
+        </Link>
       </div>
     </div>
   );
@@ -30,26 +31,26 @@ const Home = () => {
 function App(props) {
   return (
     <div className="card">
-      <a href={`./events/${props.id}`}>
-      <div className={props.scope}>
-        <div className="card-content">
-          <div className="media">
-            {/*       === For event type image ===   
+      <Link to={`./event/${props.id}`}>
+        <div className={props.scope}>
+          <div className="card-content">
+            <div className="media">
+              {/*       === For event type image ===   
           <div className="media-left">
             <figure className="image is-48x48">
               <img src="img-link" alt="Placeholder image"></img>
             </figure>
           </div> */}
-            <div className="media-content">
-              <p className="title is-4">{props.title}</p>
-              <p className="subtitle is-6">({props.type})</p>
-              <p className="subtitle is-6">Event Owner: <b>{props.owner}</b></p>
-              <p className="subtitle is-6"> Starts on <b>{props.sdate}</b> and ends on <b>{props.edate}</b></p>
+              <div className="media-content">
+                <p className="title is-4">{props.title}</p>
+                <p className="subtitle is-6">({props.type})</p>
+                <p className="subtitle is-6">Event Owner: <b>{props.owner}</b></p>
+                <p className="subtitle is-6"> Starts on <b>{props.sdate}</b> and ends on <b>{props.edate}</b></p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      </a>
+      </Link>
     </div>
   )
 }

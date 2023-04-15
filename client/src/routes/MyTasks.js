@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
 
 const MyTasks = () => {
@@ -21,6 +20,7 @@ const MyTasks = () => {
           {completedTasks.map((app) => <App description={app.description} event={app.event} title={app.title} owner={app.owner} date={app.date} completed={app.completed} id={app.id} />)}
         </div>
       </div>
+<<<<<<< HEAD
       <Link to='/CreateTask'>
         <div className="actions">
           <a className="div-button">
@@ -31,6 +31,16 @@ const MyTasks = () => {
           </a>
         </div>
       </Link>
+=======
+      <div className="actions">
+        <Link to="/CreateTask" className="div-button">
+          <div className="create-button">
+            <p>Create</p>
+            <p>New Task</p>
+          </div>
+        </Link>
+      </div>
+>>>>>>> 56ec679b94695819e76fcef6ef2b45728883c8f4
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
 
 const MyEvents = () => {
@@ -31,14 +30,14 @@ const MyEvents = () => {
           {expiredEvents.map((app) => <App type={app.type} title={app.title} owner={app.owner} sdate={app.sdate} edate={app.edate} scope="expired" />)}
         </div>
       </div>
-        <div className="actions">
-          <a className="div-button" href="/CreateEvent">
-            <div className="create-button">
-              <p>Create</p>
-              <p>New Event</p>
-            </div>
-          </a>
-        </div>
+      <div className="actions">
+        <Link to="/CreateEvent" className="div-button">
+          <div className="create-button">
+            <p>Create</p>
+            <p>New Event</p>
+          </div>
+        </Link>
+      </div>
     </div>
   );
 }
@@ -46,7 +45,7 @@ const MyEvents = () => {
 function App(props) {
   return (
     <div className="card">
-      <a href={`./events/${props.id}`}>
+      <Link to={`../event/${props.id}`}>
         <div className={props.scope}>
           <div className="card-content">
             <div className="media">
@@ -65,7 +64,7 @@ function App(props) {
             </div>
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   )
 }
