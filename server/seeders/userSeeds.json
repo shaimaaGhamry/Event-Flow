@@ -1,51 +1,51 @@
 [
     {
-        "username": "Bruce Wayne",
+        "userName": "Bruce Wayne",
         "email": "bwaynen@techfriends.dev",
         "password": "password01"
       },
       {
-        "username": "Maxwell Slander",
+        "userName": "Maxwell Slander",
         "email": "malander@techfriends.dev",
         "password": "password02"
       },
       {
-        "username": "Lucky Syatt",
+        "userName": "Lucky Syatt",
         "email": "lwyatt@techfriends.dev",
         "password": "password03"
       },
       {
-        "username": "Kent Clark",
+        "userName": "Kent Clark",
         "email": "kclark@techfriends.dev",
         "password": "password04"
       },
       {
-        "username": "Vicky Bello",
+        "userName": "Vicky Bello",
         "email": "vbello@techfriends.dev",
         "password": "password05"
       },
       {
-        "username": "May Payne",
+        "userName": "May Payne",
         "email": "mpayne@techfriends.dev",
         "password": "password06"
       },
       {
-        "username": "Sicilia George",
+        "userName": "Sicilia George",
         "email": "sgeorge@techfriends.dev",
         "password": "password07"
       },
       {
-        "username": "David Wey",
+        "userName": "David Wey",
         "email": "dwey@techfriends.dev",
         "password": "password08"
       },
       {
-        "username": "Donald Dang",
+        "userName": "Donald Dang",
         "email": "ddang@techfriends.dev",
         "password": "password09"
       },
       {
-        "username": "Slovack Jean",
+        "userName": "Slovack Jean",
         "email": "sjean@techfriends.dev",
         "password": "password10"
       }
