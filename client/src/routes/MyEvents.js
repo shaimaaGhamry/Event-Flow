@@ -45,7 +45,7 @@ const MyEvents = () => {
 function App(props) {
   return (
     <div className="card">
-      <Link to={`./event/${props.id}`}>
+      <Link to={`../event/${props.id}`}>
         <div className={props.scope}>
           <div className="card-content">
             <div className="media">
