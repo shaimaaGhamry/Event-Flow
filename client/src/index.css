@@ -124,3 +124,17 @@ a.div-button {
 details > summary::marker {
   content: "";
 }
+
+.calendar .event-date {
+  font-family: 'IBM Plex Sans', sans-serif;
+  position: relative;
+  max-width: 1000px; /*change as per your design need */
+  min-width: 320px;
+  background: var(--calendar-bg-color);
+  color: rgb(54,54,54);
+  margin: 20px auto;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-weight: bold;
+  border-radius: 10vh;
+}

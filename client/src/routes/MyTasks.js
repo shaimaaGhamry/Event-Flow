@@ -1,15 +1,17 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 const MyTasks = () => {
   const taskList = [
-    { title: "Buy ice", description: "Baby Shower", event: "ABC", owner: "Albus Dumbeldore", date: "15 Apr 2023", completed:"false", id: "1" },
-    { title: "Book tickets", description: "Trip", event: "DEF", owner: "Beatrix Lestrange", date: "20 Apr 2023", completed:"false", id: "2" },
-    { title: "Book accomodation", description: "Trip", event: "DEF", owner: "Beatrix Lestrange", date: "28 Apr 2023", completed:"false", id: "3" },
-    { title: "Collect cake", description: "Birthday", event: "GHI", owner: "Colin Creevey", date: "5 May 2023", completed:"false", id: "4" },
+    { title: "Buy ice", description: "Baby Shower", event: "ABC", owner: "Albus Dumbeldore", date: "15 Apr 2023", completed: "false", id: "1" },
+    { title: "Book tickets", description: "Trip", event: "DEF", owner: "Beatrix Lestrange", date: "20 Apr 2023", completed: "false", id: "2" },
+    { title: "Book accomodation", description: "Trip", event: "DEF", owner: "Beatrix Lestrange", date: "28 Apr 2023", completed: "false", id: "3" },
+    { title: "Collect cake", description: "Birthday", event: "GHI", owner: "Colin Creevey", date: "5 May 2023", completed: "false", id: "4" },
   ];
   const completedTasks = [
-    { title: "Order cake", description: "Birthday", event: "GHI", owner: "Colin Creevey", date: "15 Apr 2023", completed:"true", id: "1" },
-    { title: "Make reservation", description: "Birthday", event: "JKL", owner: "Draco Malfoy", date: "20 Apr 2023", completed:"true", id: "2" },
+    { title: "Order cake", description: "Birthday", event: "GHI", owner: "Colin Creevey", date: "15 Apr 2023", completed: "true", id: "1" },
+    { title: "Make reservation", description: "Birthday", event: "JKL", owner: "Draco Malfoy", date: "20 Apr 2023", completed: "true", id: "2" },
   ];
   return (
     <div className="main events-main">
@@ -19,14 +21,16 @@ const MyTasks = () => {
           {completedTasks.map((app) => <App description={app.description} event={app.event} title={app.title} owner={app.owner} date={app.date} completed={app.completed} id={app.id} />)}
         </div>
       </div>
-      <div className="actions">
-        <a className="div-button" href="createeventlink">
-          <div className="create-button">
-            <p>Create</p>
-            <p>New Task</p>
-          </div>
-        </a>
-      </div>
+      <Link to='/CreateTask'>
+        <div className="actions">
+          <a className="div-button">
+            <div className="create-button">
+              <p>Create</p>
+              <p>New Task</p>
+            </div>
+          </a>
+        </div>
+      </Link>
     </div>
   );
 }
@@ -50,13 +54,13 @@ function App(props) {
                     <p className="title is-4">{props.title}</p>
                     <p className="subtitle is-6"> To be completed by <b>{props.date}</b></p>
                   </summary>
-                    <p className="subtitle is-6">for <b>{props.event}</b></p>
-                    <p className="subtitle is-6">Details: ({props.description})</p>
-                    <p className="subtitle is-6">Assigned by <b>{props.owner}</b></p>
+                  <p className="subtitle is-6">for <b>{props.event}</b></p>
+                  <p className="subtitle is-6">Details: ({props.description})</p>
+                  <p className="subtitle is-6">Assigned by <b>{props.owner}</b></p>
                 </details>
               </div>
               <div className="buttons">
-                <a className={"button is-primary "+props.id}>
+                <a className={"button is-primary " + props.id}>
                   <strong>Completed</strong>
                 </a>
               </div>
