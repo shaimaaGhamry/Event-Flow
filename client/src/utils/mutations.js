@@ -24,3 +24,79 @@ mutation login($email: String!, $password: String!) {
     }
   }
   `;
+
+  export const CREATE_EVENT = gql`
+  mutation createEvent($input: EventInput!) {
+    createEvent(input: $input) {
+      _id
+      name
+      description
+      startDate
+      endDate
+      type
+      isPrivate
+      location
+      createdBy {
+        id
+        userName
+        email
+        password
+        pendingEvents {
+          _id
+          name
+          description
+          startDate
+          endDate
+          type
+          isPrivate
+          location
+        }
+        acceptedEvents {
+          _id
+          name
+          description
+          startDate
+          endDate
+          type
+          isPrivate
+          location
+        }
+      }
+      attendees {
+        id
+        userName
+        email
+        password
+      }
+      invitees {
+        id
+        userName
+        email
+        password
+      }
+      tasks {
+        id
+        title
+        description
+        assignedTo {
+          id
+          userName
+          email
+          password
+        }
+        deadline
+        completed
+        event {
+          _id
+          name
+          description
+          startDate
+          endDate
+          type
+          isPrivate
+          location
+        }
+      }
+    }
+  }
+  `;

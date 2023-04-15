@@ -27,6 +27,10 @@ const userSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: 'Event'
     }],
+    ownedEvents: [{
+      type: Schema.Types.ObjectId,
+      ref: 'Event'
+    }],
 
     tasks: [{
       type: Schema.Types.ObjectId,
