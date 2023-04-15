@@ -5,7 +5,8 @@
         "startDate": "May 11, 2023",
         "endDate": "May 12, 2023",
         "isPrivate": "true",
-        "location": "800 Gauvin Rd, Moncton NB E1A 1N1"
+        "location": "800 Gauvin Rd, Moncton NB E1A 1N1",
+        "type": "Trip"
     },
     {
         "name": "Movie night",
@@ -13,15 +14,17 @@
         "startDate": "May 5, 2023",
         "endDate": "May 6, 2023",
         "isPrivate": "true",
-        "location": "Cineplex, 800 Champlain Rd, Moncton NB E1A 5D3"
+        "location": "Cineplex, 800 Champlain Rd, Moncton NB E1A 5D3",
+         "type": "Proposal"
     },
     {
-        "name": "Company Annual Party",
-        "description": "An end of the quarter annual party",
+        "name": "Explore 2023",
+        "description": "A company's annual conference",
         "startDate": "June 5, 2023",
         "endDate": "June 6, 2023",
         "isPrivate": "true",
-        "location": "Coliseum, 377 Killam Dr, Moncton, NB E1C 3T1"
+        "location": "Coliseum, 377 Killam Dr, Moncton, NB E1C 3T1",
+        "type": "Conference"
     },
     {
         "name": "Moncton FundRaising",
@@ -29,7 +32,8 @@
         "startDate": "August 5, 2023",
         "endDate": "August 6, 2023",
         "isPrivate": "true",
-        "location": "Coliseum, 377 Killam Dr, Moncton, NB E1C 3T1"
+        "location": "Coliseum, 377 Killam Dr, Moncton, NB E1C 3T1",
+         "type": "Business"
     }
     
 
