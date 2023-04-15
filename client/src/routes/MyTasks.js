@@ -21,14 +21,16 @@ const MyTasks = () => {
           {completedTasks.map((app) => <App description={app.description} event={app.event} title={app.title} owner={app.owner} date={app.date} completed={app.completed} id={app.id} />)}
         </div>
       </div>
+      <Link to='/CreateTask'>
         <div className="actions">
-          <a className="div-button" href="/CreateEvent">
+          <a className="div-button">
             <div className="create-button">
               <p>Create</p>
               <p>New Task</p>
             </div>
           </a>
         </div>
+      </Link>
     </div>
   );
 }
