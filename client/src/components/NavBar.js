@@ -21,21 +21,36 @@ function NavTabs({ currentPage, handlePageChange }) {
 
             <div className="space-nav">&nbsp;</div>
 
-            <div id="navbarBasicExample" className="navbar-menu">
-                <div className="navbar-start">
-                    <div className="buttons">
-                        <a className="button is-light" href="./myevents">
-                            My Events
-                        </a>
-                        <a className="button is-light" href="./mytasks">
-                            My Tasks
-                        </a>
-                        <a className="button is-light" href="./testing">
-                            test environment
-                        </a>
-                    </div>
-                </div>
+            <div className="tabs nav-tabs is-centered is-boxed">
+                <ul>
+                    <Link to="/myevents" className={currentPage === 'MyEvents' ? 'nav-link is-current' : 'nav-link'}>
+                        <li>
+                            <a onClick={() => handlePageChange('MyEvents')}>
+                                <span className="icon is-medium"><img src="./events.png" className="fas" aria-hidden="true"></img></span>
+                                <span><strong>My Events</strong></span>
+                            </a>
+                        </li>
+                    </Link>
+                    <Link to='/mytasks' className={currentPage === 'MyTasks' ? 'nav-link is-current' : 'nav-link'}>
+                        <li>
+                            <a onClick={() => handlePageChange('MyTasks')}>
+                                <span className="icon is-medium"><img src="./tasks.png" className="fas" aria-hidden="true"></img></span>
+                                <span><strong>My Tasks</strong></span>
+                            </a>
+                        </li>
+                    </Link>
+                    <Link to='/testing' className={currentPage === 'TestEnv' ? 'nav-link is-current' : 'nav-link'}>
+                        <li>
+                            <a onClick={() => handlePageChange('TestEnv')}>
+                                <span className="icon is-medium"><i className="fas fa-film" aria-hidden="true"></i></span>
+                                <span><strong>test environment</strong></span>
+                            </a>
+                        </li>
+                    </Link>
+                </ul>
+            </div>
 
+            <div id="navbarBasicExample" className="navbar-menu">
                 <div className="navbar-end">
                     <div className="navbar-item">
                         {isLoggedIn

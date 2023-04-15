@@ -148,3 +148,12 @@ details > summary::marker {
   color: var(--is-light);
   margin-right: 1rem;
 }
+
+.is-current {
+  background-color: var(--is-light);
+}
+
+.nav-tabs {
+  margin-top: 6.2rem;
+  margin-bottom: 0rem !important;
+}
