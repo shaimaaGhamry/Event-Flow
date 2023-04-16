@@ -20,16 +20,14 @@ const MyTasks = () => {
           {completedTasks.map((app) => <App description={app.description} event={app.event} title={app.title} owner={app.owner} date={app.date} completed={app.completed} id={app.id} />)}
         </div>
       </div>
-      <Link to='/CreateTask'>
-        <div className="actions">
-          <a className="div-button">
-            <div className="create-button">
-              <p>Create</p>
-              <p>New Task</p>
-            </div>
-          </a>
-        </div>
-      </Link>
+      <div className="actions">
+        <Link to='/CreateTask' className="div-button">
+          <div className="create-button">
+            <p>Create</p>
+            <p>New Task</p>
+          </div>
+        </Link>
+      </div>
     </div>
   );
 }
@@ -38,7 +36,7 @@ function App(props) {
   return (
     <div className="card">
       <a>
-        <div className={props.completed?"true":"false"}>
+        <div className={props.completed ? "true" : "false"}>
           <div className="card-content">
             <div className="media">
               {/*       === For event type image ===   
@@ -59,11 +57,11 @@ function App(props) {
                 </details>
               </div>
               {!props.completed &&
-               <div className="buttons">
-                 <a className={"button is-primary " + props.id}>
-                   <strong>Mark as Completed</strong>
-                 </a>
-               </div>
+                <div className="buttons">
+                  <a className={"button is-primary " + props.id}>
+                    <strong>Mark as Completed</strong>
+                  </a>
+                </div>
               }
             </div>
           </div>

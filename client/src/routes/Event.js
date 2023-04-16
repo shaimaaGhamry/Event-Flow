@@ -8,7 +8,7 @@ const Event = () => {
   return (
     <div className="main events-main">
       <div className="events">
-        <div className="title is-4">Events that you might be interested in:</div>
+        <div className="title is-4">Event Name by Event Owner</div>
         <div className="row">
           Event details here
         </div>

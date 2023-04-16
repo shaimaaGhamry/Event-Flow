@@ -43,14 +43,13 @@ code {
 }
 
 .events {
-  width: 70%;
+  width: 75%;
   padding-left: 1rem;
 }
 
 .actions {
-  width: 30%;
-  padding-right: 1rem;
-  display:flex;
+  width: 25%;
+  display: flex;
   justify-content: center;
   align-items: flex-start;
 }
