@@ -8,7 +8,9 @@ function NavTabs({ currentPage, handlePageChange }) {
         <nav className="navbar" role="navigation" aria-label="main navigation" >
             <div className="navbar-brand">
                 <Link to="./" className="navbar-item">
+                    <a onClick={() => handlePageChange('Home')}>
                     <img src="./logo192.png" className="nav-logo"></img>
+                    </a>
                 </Link>
 
                 <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -56,17 +58,17 @@ function NavTabs({ currentPage, handlePageChange }) {
                             ? <div className="buttons">
                                 <span className='username'>username</span>
                                 <Link to="" >
-                                    <a className="button is-light">Log out</a>
+                                    <a className="button is-light" onClick={() => handlePageChange('Logout')}>Log out</a>
                                 </Link>
                             </div>
                             : <div className="buttons">
                                 <Link to='/SignUp'>
-                                    <a className="button is-primary">
+                                    <a className="button is-primary" onClick={() => handlePageChange('SignUp')}>
                                         <strong>Sign up</strong>
                                     </a>
                                 </Link>
                                 <Link to='/LoginForm'>
-                                    <a className="button is-light">Log in</a>
+                                    <a className="button is-light" onClick={() => handlePageChange('LoginForm')}>Log in</a>
                                 </Link>
                             </div>
                         }
