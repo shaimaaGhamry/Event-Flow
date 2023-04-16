@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-const isLoggedIn = true;
+const isLoggedIn = false;
 
 function NavTabs({ currentPage, handlePageChange }) {
     return (

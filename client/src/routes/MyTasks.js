@@ -3,14 +3,14 @@ import { Link } from 'react-router-dom';
 
 const MyTasks = () => {
   const taskList = [
-    { title: "Buy ice", description: "Baby Shower", event: "ABC", owner: "Albus Dumbeldore", date: "15 Apr 2023", completed: "false", id: "1" },
-    { title: "Book tickets", description: "Trip", event: "DEF", owner: "Beatrix Lestrange", date: "20 Apr 2023", completed: "false", id: "2" },
-    { title: "Book accomodation", description: "Trip", event: "DEF", owner: "Beatrix Lestrange", date: "28 Apr 2023", completed: "false", id: "3" },
-    { title: "Collect cake", description: "Birthday", event: "GHI", owner: "Colin Creevey", date: "5 May 2023", completed: "false", id: "4" },
+    { title: "Buy ice", description: "Baby Shower", event: "ABC", owner: "Albus Dumbeldore", date: "15 Apr 2023", completed: false, id: 1 },
+    { title: "Book tickets", description: "Trip", event: "DEF", owner: "Beatrix Lestrange", date: "20 Apr 2023", completed: false, id: 2 },
+    { title: "Book accomodation", description: "Trip", event: "DEF", owner: "Beatrix Lestrange", date: "28 Apr 2023", completed: false, id: 3 },
+    { title: "Collect cake", description: "Birthday", event: "GHI", owner: "Colin Creevey", date: "5 May 2023", completed: false, id: 4 },
   ];
   const completedTasks = [
-    { title: "Order cake", description: "Birthday", event: "GHI", owner: "Colin Creevey", date: "15 Apr 2023", completed: "true", id: "1" },
-    { title: "Make reservation", description: "Birthday", event: "JKL", owner: "Draco Malfoy", date: "20 Apr 2023", completed: "true", id: "2" },
+    { title: "Order cake", description: "Birthday", event: "GHI", owner: "Colin Creevey", date: "15 Apr 2023", completed: true, id: 1 },
+    { title: "Make reservation", description: "Birthday", event: "JKL", owner: "Draco Malfoy", date: "20 Apr 2023", completed: true, id: 2 },
   ];
   return (
     <div className="main events-main">
@@ -38,7 +38,7 @@ function App(props) {
   return (
     <div className="card">
       <a>
-        <div className={props.completed}>
+        <div className={props.completed?"true":"false"}>
           <div className="card-content">
             <div className="media">
               {/*       === For event type image ===   
@@ -58,11 +58,13 @@ function App(props) {
                   <p className="subtitle is-6">Assigned by <b>{props.owner}</b></p>
                 </details>
               </div>
-              <div className="buttons">
-                <a className={"button is-primary " + props.id}>
-                  <strong>Completed</strong>
-                </a>
-              </div>
+              {!props.completed &&
+               <div className="buttons">
+                 <a className={"button is-primary " + props.id}>
+                   <strong>Mark as Completed</strong>
+                 </a>
+               </div>
+              }
             </div>
           </div>
         </div>
