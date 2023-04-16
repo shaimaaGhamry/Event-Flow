@@ -9,7 +9,7 @@ function NavTabs({ currentPage, handlePageChange }) {
             <div className="navbar-brand">
                 <Link to="./" className="navbar-item">
                     <a onClick={() => handlePageChange('Home')}>
-                    <img src="./logo192.png" className="nav-logo"></img>
+                    <img src="logo192.png" className="nav-logo"></img>
                     </a>
                 </Link>
 

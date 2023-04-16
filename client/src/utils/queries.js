@@ -72,7 +72,7 @@ query Users {
   }
   `;
 
-  export const EVENT_BY_ID = gql`
+export const EVENT_BY_ID = gql`
   query event($eventId: ID!) {
     event(id: $eventId) {
       _id
@@ -97,4 +97,4 @@ query Users {
       }
     }
   }
-  `;
+`;
