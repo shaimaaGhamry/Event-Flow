@@ -1,99 +1,100 @@
 import React, { useState } from 'react';
 
-import { Form, Button, Notification } from 'react-bulma-components';
+import { Link } from 'react-router-dom';
+
 import { useMutation } from "@apollo/client";
 
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
 
 const LoginForm = () => {
-    const [userFormData, setUserFormData] = useState({ email: '', password: '' })
-    const [validated] = useState(false);
-    const [showAlert, setShowAlert] = useState(false);
-    
-    const [login] = useMutation(LOGIN_USER);
-    
-    const handleInputChange = (event) => {
-        const { name, value } = event.target;
-    setUserFormData({ ...userFormData, [name]: value });
+
+  const [formState, setFormState] = useState({ email: '', password: '' });
+  const [login, { error, data }] = useMutation(LOGIN_USER);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-      
-       // check if form has everything 
-    const form = event.currentTarget;
-    if (form.checkValidity() === false) {
-      event.preventDefault();
-      event.stopPropagation();
-    }
 
     try {
       const { data } = await login({
-        variables: { ...userFormData },
+        variables: { ...formState },
       });
+
       Auth.login(data.login.token);
-    } catch (err) {
-      console.error(err);
-      setShowAlert(true);
+    } catch (e) {
+      console.error(e);
     }
-    setUserFormData({
-      username: '',
+
+    // clear form values
+    setFormState({
       email: '',
       password: '',
     });
   };
-    render (); {
-    return (
-        <section class="hero  is-fullheight is-fullwidth">
-        <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-            <Notification dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='is-danger'>
-               Something went wrong with your login credentials!
-            </Notification>
-        <Form.Group className='hero-body is-justify-content-center is-align-items-center'>
-            <Form.Label htmlFor='email'>Email</Form.Label>
-            <Form.Control
-               type='text'
-               placeholder='e.g. bobsmith@gmail.com'
-               class="input is-primary"
-               name='email'
-               onChange={handleInputChange}
-               value={userFormData.email}
-               required
-            />          
-            <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
 
 
-        </Form.Group>
-          <Form.Group className='hero-body is-justify-content-center is-align-items-center'>
-          <Form.Label htmlFor='password'>Password</Form.Label>
-          <Form.Control
-            type='password'
-            placeholder='******' 
-            class="input is-primary"
-            name='password'
-            onChange={handleInputChange}
-            value={userFormData.password}
-            required
-          />
-          <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
-        </Form.Group>
-         <Button class="button is-success is-primary is-fullwidth"
-          disabled={!(userFormData.email && userFormData.password)}
-          type='submit'
-          variant='success is-primary'>
-          Login
-        </Button>
-        <div class="has-text-centered">
-             <p class="is-size-7"> Don't have an account? <a href='./SignUp' class="has-text-primary">Sign up</a>
-             </p>
+  return (
+
+    <section class="hero  is-fullheight is-fullwidth">
+
+      <div class="hero-body is-justify-content-center is-align-items-center">
+        <div class="columns is-flex is-flex-direction-column box">
+          <div class="box">
+            {data ? (
+              <p>
+                Success! You may view{' '}
+                <Link to="/myevents">your events</Link>
+              </p>
+            ) : (
+              <form onSubmit={handleFormSubmit}>
+
+                <label for="" class="label">Email</label>
+                <input type="email" placeholder="e.g. bobsmith@gmail.com" class="input is-primary" required
+                  name="email" value={formState.email} onChange={handleChange}>
+                </input>
+
+                <div class="field">
+                  <label for="" class="label">Password</label>
+                  <input type="password" placeholder="*******" class="input is-primary" required
+                    name="password" value={formState.password}
+                    onChange={handleChange} >
+
+                  </input>
+
+                </div>
+                <div class="field">
+                  <label for="" class="checkbox">
+                    <input type="checkbox"></input>
+                    Remember me
+                  </label>
+                </div>
+                <div class="field">
+                  <button class="button is-success is-primary is-fullwidth" type="submit">
+                    Login
+                  </button>
+                </div>
+                <div class="has-text-centered">
+                  <p class="is-size-7"> Don't have an account? <a href='./SignUp' class="has-text-primary">Sign up</a>
+                  </p>
+                </div>
+              </form>
+
+            )}
+          </div>
         </div>
-       </Form>
-     </section>
-    
-);
-                    
-};
+      </div>
+    </section>
+
+  )
 };
 
-              export default LoginForm;
+export default LoginForm;
