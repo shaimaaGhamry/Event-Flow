@@ -1,30 +1,17 @@
-import React from 'react';
+import React, { useState }from 'react';
 
-import bulmaCalendar from "bulma-calendar";
+import Datetimepicker from 'react-datetime-picker';
 
-// Initialize all input of date type.
-const calendars = bulmaCalendar.attach('[type="date"]');
-
-// Loop on each calendar initialized
-calendars.forEach(calendar => {
-    // Add listener to select event
-    calendar.on('select', date => {
-        console.log(date);
-    });
-});
-
-// To access to bulmaCalendar instance of an element
-const element = document.querySelector('#my-element');
-if (element) {
-    // bulmaCalendar instance is available as element.bulmaCalendar
-    element.bulmaCalendar.on('select', datepicker => {
-        console.log(datepicker.data.value());
-    });
-}
+import 'react-datetime-picker/dist/DateTimePicker.css';
+import 'react-calendar/dist/Calendar.css';
+import 'react-clock/dist/Clock.css';
 
 
 const CreateEvent = () => {
+    const [value, setValue] = useState(new Date());
+
     return (
+        
         <div class="hero is-fullheight">
             <h1>Create an Event</h1>
             <div class="hero-body is-justify-content-center is-align-items-center">
@@ -57,16 +44,16 @@ const CreateEvent = () => {
                             </select>
                         </div>
                     </div>
-                    <div class="column">
-                        <div class="calendar">
-                            <label for="date" className='start-date'>Start Date</label>
-                            <input type="date" data-display-mode="inline" data-is-range="true" data-close-on-select="false"></input>
-                        </div>
-                        <div class="calendar">
-                            <label for="date" className='end-date'>End Date</label>
-                            <input type="date" data-display-mode="inline" data-is-range="true" data-close-on-select="false"></input>
-                        </div>
+                    <div class="start-calendar is-primary">
+                        <label for="datetime" className='start-datetime'>Start Date&Time </label>
+                        <Datetimepicker onChange={setValue} value={value} data-display-mode="inline"></Datetimepicker>
                     </div>
+
+                    <div className='end-calendar'>
+                        <label for="datetime" className='end-datetime'>End Date&Time </label>
+                        <Datetimepicker onChange={setValue} value={value} data-display-mode="inline"></Datetimepicker>
+                    </div>
+                    
                     <div class="field">
                         <div class="control">
                             <label class="radio">
