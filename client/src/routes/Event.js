@@ -32,10 +32,10 @@ const Event = () => {
           </div>
           <footer class="card-footer">
             <div className="buttons">
-              {event.isPrivate?"":
-              <Link to="">
-                <a className="button is-primary">Join</a>
-              </Link>}
+              {event.isPrivate ? "" :
+                <Link to="">
+                  <a className="button is-primary">Join</a>
+                </Link>}
               <Link to="">
                 <a className="button is-primary">Edit</a>
               </Link>
@@ -51,18 +51,51 @@ const Event = () => {
       </div>
       <div className="actions">
         {event.isPrivate &&
-          <div>
-            <div className="attendees">
-              Invited
+          <>
+            <div className="row event-row invitees">
+              <div className="event-list"><p><span className="event-list">INVITED</span></p></div>
+              <EventInvitees invitees={event.invitees} attendees={event.attendees} />
             </div>
-            <div className="attendees">
-              Tasks
+            <div className="row event-row event-tasks">
+              <div className="event-list"><p><span className="event-list">TASKS</span></p></div>
+              <EventTasks tasks={event.tasks} />
             </div>
-          </div>
+          </>
         }
       </div>
     </div>
   );
+}
+
+const EventInvitees = ({ invitees, attendees }) => {
+  if (!invitees.length) {
+    return <p>No one's been invited yet</p>;
+  }
+  let inviteeNames = invitees.map(iName => iName.userName);
+  let attendeeNames = attendees.map(aName => aName.userName);
+  const confirmationPending = inviteeNames.filter(
+    invitee => !attendeeNames.includes(invitee)
+  );
+  return (
+    <>
+      {attendeeNames.map((attendee) => (
+        <div>
+          <p className="invitees">{attendee} <span className="checkmark">&#x2713;</span></p>
+        </div>
+      ))}
+      {confirmationPending.map((invitee) => (
+        <div>
+          <p className="invitees">{invitee} </p>
+        </div>
+      ))}
+    </>
+  )
+}
+
+const EventTasks = ({ tasks }) => {
+  return (
+    <p>task list here</p>
+  )
 }
 
 export default Event;
