@@ -26,7 +26,7 @@ const events = await Event.insertMany([{
         "createdBy": sampleUser[0],
         "attendees": [sampleUser[0], sampleUser[1]],
         "invitees": [sampleUser[0], sampleUser[1], sampleUser[2]],
-        // "tasks": [tasks[0], tasks[1]]
+        "tasks": [tasks[0], tasks[1]]
 },
 {
     "name": "Movie night",
@@ -39,7 +39,7 @@ const events = await Event.insertMany([{
          "createdBy": sampleUser[1],
          "attendees": [sampleUser[1], sampleUser[2]],
          "invitees": [sampleUser[0], sampleUser[1], sampleUser[2]],
-        //  "tasks": [tasks[0], tasks[1]]
+         "tasks": [tasks[0], tasks[1]]
 },
 {
     "name": "Movie night",
@@ -52,7 +52,7 @@ const events = await Event.insertMany([{
          "createdBy": sampleUser[1],
          "attendees": [sampleUser[1], sampleUser[2]],
          "invitees": [sampleUser[0], sampleUser[1], sampleUser[2]],
-        //  "tasks": [tasks[0], tasks[1]]
+         "tasks": [tasks[0], tasks[1]]
 },
 {
     "name": "Moncton FundRaising",
@@ -65,7 +65,7 @@ const events = await Event.insertMany([{
      "createdBy": sampleUser[2],
          "attendees": [sampleUser[2], sampleUser[3], sampleUser[4]],
          "invitees": [sampleUser[0], sampleUser[1], sampleUser[2], sampleUser[3], sampleUser[4], sampleUser[5]],
-        //  "tasks": [tasks[0], tasks[1], tasks[2], tasks[3] ]
+         "tasks": [tasks[0], tasks[1], tasks[2], tasks[3] ]
 }
 ]);
 const test = await Event.find().populate('createdBy').populate('attendees').populate('invitees');
