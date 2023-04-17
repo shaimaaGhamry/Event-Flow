@@ -87,8 +87,12 @@ const LoginForm = () => {
                   </p>
                 </div>
               </form>
-
             )}
+              {error && (
+              <div className="my-3 p-3 is-danger text-white">
+                {error.message}
+              </div>
+          )}
           </div>
         </div>
       </div>
