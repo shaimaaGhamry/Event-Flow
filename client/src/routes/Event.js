@@ -8,7 +8,6 @@ const Event = () => {
   const isPublic = false;
 
   const { eventId } = useParams();
-  console.log(eventId);
   const { loading, data } = useQuery(EVENT_BY_ID, {
     variables: { eventId: eventId },
   });
@@ -20,9 +19,13 @@ const Event = () => {
   return (
     <div className="main events-main">
       <div className="events">
-        <div className="title is-4">{event.name} by Username</div>
+        <div className="title is-4">{event.name} by {event.createdBy.userName}</div>
         <div className="row">
-          Event details here
+          <p>Type: {event.type}</p>
+          <p>Starting on {event.startDate} and ending on {event.endDate}</p>
+          <p>Location:{event.location}</p>
+          <p>Details:</p>
+          <p>{event.description}</p>
         </div>
       </div>
       <div className="actions">

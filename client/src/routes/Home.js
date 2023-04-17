@@ -1,19 +1,17 @@
 import React from 'react';
+import { useQuery } from '@apollo/client';
+import { ALL_EVENTS } from '../utils/queries';
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  const publicEvents = [
-    { title: "ABC", type: "Baby Shower", owner: "Albus Dumbeldore", sdate: "15 Apr 2023", edate: "15 Apr 2023", id: "1" },
-    { title: "DEF", type: "Graduation", owner: "Beatrix Lestrange", sdate: "20 Apr 2023", edate: "20 Apr 2023", id: "2" },
-    { title: "GHI", type: "Trip", owner: "Colin Creevey", sdate: "28 Apr 2023", edate: "5 May 2023", id: "3" },
-    { title: "JKL", type: "Birthday", owner: "Draco Malfoy", sdate: "5 May 2023", edate: "5 May 2023", id: "4" },
-  ];
+  const { loading, data } = useQuery(ALL_EVENTS);
+  const events = data?.events || [];
   return (
     <div className="main events-main">
       <div className="events">
         <div className="title is-4">Events that you might be interested in:</div>
         <div className="row">
-          {publicEvents.map((app) => <App type={app.type} title={app.title} owner={app.owner} sdate={app.sdate} edate={app.edate} id={app.id} scope="public" />)}
+          <PublicEvents events={events} />
         </div>
       </div>
       <div className="actions">
@@ -28,30 +26,41 @@ const Home = () => {
   );
 }
 
-function App(props) {
+const PublicEvents = ({ events }) => {
+  if (!events.length) {
+    return <p>No public events available</p>;
+  }
+
   return (
-    <div className="card">
-      <Link to={`./event/${props.id}`}>
-        <div className={props.scope}>
-          <div className="card-content">
-            <div className="media">
-              {/*       === For event type image ===   
-          <div className="media-left">
-            <figure className="image is-48x48">
-              <img src="img-link" alt="Placeholder image"></img>
-            </figure>
-          </div> */}
-              <div className="media-content">
-                <p className="title is-4">{props.title}</p>
-                <p className="subtitle is-6">({props.type})</p>
-                <p className="subtitle is-6">Event Owner: <b>{props.owner}</b></p>
-                <p className="subtitle is-6"> Starts on <b>{props.sdate}</b> and ends on <b>{props.edate}</b></p>
-              </div>
-            </div>
+    <>
+      {events &&
+        events.map((event) => (
+          <div className={event.isPrivate ? "card hidden" : "card"}>
+            {event.isPrivate ? "" :
+              <Link to={`../event/${event._id}`}>
+                <div className={event.isPrivate ? "private" : "public"}>
+                  <div className="card-content">
+                    <div className="media">
+                      {/*       === For event type image ===   
+                      <div className="media-left">
+                        <figure className="image is-48x48">
+                          <img src="img-link" alt="Placeholder image"></img>
+                        </figure>
+                      </div> */}
+                      <div className="media-content">
+                        <p className="title is-4">{event.name}</p>
+                        <p className="subtitle is-6">({event.type})</p>
+                        <p className="subtitle is-6">Event Owner: <b>{event.createdBy.userName}</b></p>
+                        <p className="subtitle is-6"> Starts on <b>{event.startDate}</b> and ends on <b>{event.endDate}</b></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            }
           </div>
-        </div>
-      </Link>
-    </div>
+        ))}
+    </>
   )
 }
 
