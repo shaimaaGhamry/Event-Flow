@@ -30,7 +30,7 @@ const MyEvents = () => {
           {expiredEvents.map((app) => <App type={app.type} title={app.title} owner={app.owner} sdate={app.sdate} edate={app.edate} scope="expired" />)}
         </div>
       </div>
-      <div className="actions">
+      <div className="right-panel actions">
         <Link to="/CreateEvent" className="div-button">
           <div className="create-button">
             <p>Create</p>

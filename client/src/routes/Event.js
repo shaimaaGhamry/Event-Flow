@@ -49,7 +49,7 @@ const Event = () => {
           </footer>
         </article>
       </div>
-      <div className="actions">
+      <div className="right-panel lists">
         {event.isPrivate &&
           <>
             <div className="row event-row invitees">
@@ -73,9 +73,10 @@ const EventInvitees = ({ invitees, attendees }) => {
   }
   let inviteeNames = invitees.map(iName => iName.userName);
   let attendeeNames = attendees.map(aName => aName.userName);
-  const confirmationPending = inviteeNames.filter(
+  let confirmationPending = inviteeNames.filter(
     invitee => !attendeeNames.includes(invitee)
   );
+  console.log(confirmationPending);
   return (
     <>
       {attendeeNames.map((attendee) => (

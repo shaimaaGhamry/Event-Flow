@@ -1,10 +1,10 @@
 :root {
   --is-light: #ffffff;
   --is-primary: #00d1b2;
-  --is-public: rgb(169, 250, 250);
-  --is-private: rgb(173, 251, 194);
-  --is-expired: #f5f5f5;
-  --is-pending: rgb(254, 229, 168);
+  --is-public: rgb(205, 239, 239);
+  --is-private: rgb(243, 225, 212);
+  --is-expired: #e6e6e6;
+  --is-pending: rgb(254, 219, 219);
   --text: #4a4a4a;
   --yellow: #f5ba41;
 }
@@ -54,13 +54,22 @@ code {
   padding-right: 2rem;
 }
 
-.actions {
+.right-panel {
   width: 25%;
   display: flex;
+  padding-right: 1rem;
+}
+
+.actions {
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.lists {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  padding-right: 1rem;
 }
 
 .event-row {
@@ -84,8 +93,8 @@ span.event-list {
   padding-right: 1rem;
 }
 
-div.invitees {
-  margin-top: 1.5rem;
+.event-row {
+  margin-bottom: 1.5rem;
 }
 
 p.invitees {
