@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import { Form, Button, Alert } from 'react-bulma';
+import { Form, Button, Notification } from 'react-bulma-components';
 import { useMutation } from "@apollo/client";
 
 import { LOGIN_USER } from '../utils/mutations';
@@ -43,13 +43,13 @@ const LoginForm = () => {
       password: '',
     });
   };
-    
+    render (); {
     return (
         <section class="hero  is-fullheight is-fullwidth">
         <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-            <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='is-danger'>
+            <Notification dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='is-danger'>
                Something went wrong with your login credentials!
-            </Alert>
+            </Notification>
         <Form.Group className='hero-body is-justify-content-center is-align-items-center'>
             <Form.Label htmlFor='email'>Email</Form.Label>
             <Form.Control
@@ -94,6 +94,6 @@ const LoginForm = () => {
 );
                     
 };
-
+};
 
               export default LoginForm;

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Form, Button, Alert } from 'react-bulma';
+import React, { useState } from 'react';
+import { Form, Button, Notification } from 'react-bulma-components';
 import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
@@ -19,8 +19,8 @@ const Signup = () => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
   };
-  
-    const handleFormSubmit = async (event) => {
+
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     // check if form has everything
@@ -48,15 +48,15 @@ const Signup = () => {
   };
   //test and change to first name, last name (check with team)
   return (
-      <div class="hero is-fullheight">
-         <h2>SignUp</h2>
-         {/* This is needed for the validation functionality above */}
-         <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
-         {/* show alert if server response is bad */}
-           <Alert dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='is-danger'>
-             Something went wrong with your signup!
-           </Alert>
-         <Form.Group className='hero-body is-justify-content-center is-align-items-center'>
+    <div class="hero is-fullheight">
+      <h2>SignUp</h2>
+      {/* This is needed for the validation functionality above */}
+      <Form noValidate validated={validated} onSubmit={handleFormSubmit}>
+        {/* show alert if server response is bad */}
+        <Notification dismissible onClose={() => setShowAlert(false)} show={showAlert} variant='is-danger'>
+          Something went wrong with your signup!
+        </Notification>
+        <Form.Group className='hero-body is-justify-content-center is-align-items-center'>
           <Form.Label htmlFor='username'>Username</Form.Label>
           <Form.Control
             type='text'
@@ -70,7 +70,7 @@ const Signup = () => {
           <Form.Control.Feedback type='invalid'>Username is required!</Form.Control.Feedback>
         </Form.Group>
 
-         <Form.Group className='hero-body is-justify-content-center is-align-items-center'>
+        <Form.Group className='hero-body is-justify-content-center is-align-items-center'>
           <Form.Label htmlFor='email'>Email</Form.Label>
           <Form.Control
             type='email'
@@ -84,7 +84,7 @@ const Signup = () => {
           <Form.Control.Feedback type='invalid'>Email is required!</Form.Control.Feedback>
         </Form.Group>
 
-         <Form.Group className='hero-body is-justify-content-center is-align-items-center'>
+        <Form.Group className='hero-body is-justify-content-center is-align-items-center'>
           <Form.Label htmlFor='password'>Password</Form.Label>
           <Form.Control
             type='password'
@@ -97,7 +97,7 @@ const Signup = () => {
           />
           <Form.Control.Feedback type='invalid'>Password is required!</Form.Control.Feedback>
         </Form.Group>
-     
+
         <Button class="button is-primary is-fullwidth"
           disabled={!(userFormData.username && userFormData.email && userFormData.password)}
           type='submit'
@@ -105,12 +105,14 @@ const Signup = () => {
           Sign Up
           <a href='/myevents'></a>
         </Button>
+
+        <div class="has-text-centered">
+          <p class="is-size-7"> Already have an account? <a href='/loginform' class="has-text-primary">Login</a>
+          </p>
+        </div>
+      </Form>
     </div>
-      <div class="has-text-centered">
-           <p class="is-size-7"> Already have an account? <a href='/loginform' class="has-text-primary">Login</a>
-           </p>
-      </div>
   )
 }
 
-export default SignUp
+export default Signup
