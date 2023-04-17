@@ -12,7 +12,7 @@ const taskResolvers = {
   Mutation: {
     createTask: async (
       parent,
-      { title, description, assignedTo, deadline, eventID },
+      { title, description, assignedTo, deadline, eventId },
       context
     ) => {
       if (!context.user) {
@@ -22,7 +22,7 @@ const taskResolvers = {
       if (!assignedUser) {
         throw new Error(`User with name ${assignedTo} not found`);
       }
-      let existingEvent = await Event.findById({ _id: eventID });
+      let existingEvent = await Event.findById({ _id: eventId });
       if (!existingEvent) {
         throw new Error(`Event was not found`);
       }
