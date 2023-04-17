@@ -1,7 +1,12 @@
 :root {
-  --blue: #1e90ff;
   --is-light: #ffffff;
   --is-primary: #00d1b2;
+  --is-public: rgb(169, 250, 250);
+  --is-private: rgb(173, 251, 194);
+  --is-expired: rgb(210, 210, 210);
+  --is-pending: rgb(254, 229, 168);
+  --text: #4a4a4a;
+  --yellow: #f5ba41;
 }
 
 body {
@@ -89,19 +94,42 @@ span.event-list {
 }
 
 .public {
-  background-color: rgb(169, 250, 250) !important;
+  background-color: var(--is-public) !important;
 }
 
 .private {
-  background-color: rgb(173, 251, 194) !important;
+  background-color: var(--is-private) !important;
 }
 
 .expired, .true {
-  background-color: rgb(210, 210, 210) !important;
+  background-color: var(--is-expired) !important;
 }
 
 .false {
-  background-color: rgb(254, 229, 168) !important;
+  background-color: var(--is-pending) !important;
+}
+
+.message-header {
+  color: var(--text) !important;
+  padding: 1.2rem 1.5rem 1.5rem 1.5rem !important;
+}
+
+.message-body {
+  margin-top: -1.5rem;
+}
+
+.message-body > p {
+  margin-bottom: 0.7rem;
+}
+
+.details {
+  padding-left: 1rem;
+}
+
+.card-footer {
+  padding: 0.8rem;
+  display: flex;
+  justify-content: center;
 }
 
 .create-button {
@@ -131,7 +159,7 @@ details > summary::marker {
   max-width: 1000px; /*change as per your design need */
   min-width: 320px;
   background: var(--calendar-bg-color);
-  color: rgb(54,54,54);
+  color: var(--text);
   margin: 20px auto;
   box-sizing: border-box;
   overflow: hidden;
