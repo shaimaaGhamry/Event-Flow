@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 const MyEvents = () => {
   const pendingInvites = [
-    { title: "ABC", type: "Baby Shower", owner: "Albus Dumbeldore", sdate: "15 Apr 2023", edate: "15 Apr 2023", id: "643c31f20fbe855c83a52781" },
-    { title: "DEF", type: "Graduation", owner: "Beatrix Lestrange", sdate: "20 Apr 2023", edate: "20 Apr 2023", id: "643c31f20fbe855c83a52782" },
-    { title: "GHI", type: "Trip", owner: "Colin Creevey", sdate: "28 Apr 2023", edate: "5 May 2023", id: "643c31f20fbe855c83a52783" },
-    { title: "JKL", type: "Birthday", owner: "Draco Malfoy", sdate: "5 May 2023", edate: "5 May 2023", id: "643c31f20fbe855c83a52784" },
+    { title: "ABC", type: "Baby Shower", owner: "Albus Dumbeldore", sdate: "15 Apr 2023", edate: "15 Apr 2023", id: "643efa80a58ebacd7a84fabc" },
+    { title: "DEF", type: "Graduation", owner: "Beatrix Lestrange", sdate: "20 Apr 2023", edate: "20 Apr 2023", id: "643efa80a58ebacd7a84fabd" },
+    { title: "GHI", type: "Trip", owner: "Colin Creevey", sdate: "28 Apr 2023", edate: "5 May 2023", id: "643efa80a58ebacd7a84fabe" },
+    { title: "JKL", type: "Birthday", owner: "Draco Malfoy", sdate: "5 May 2023", edate: "5 May 2023", id: "643efa80a58ebacd7a84fabf" },
   ];
   const attendingEvents = [
     { title: "MNO", type: "Baby Shower", owner: "Albus Dumbeldore", sdate: "15 Apr 2023", edate: "15 Apr 2023", scope: "public", id: "5" },
