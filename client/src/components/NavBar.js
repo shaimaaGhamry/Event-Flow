@@ -61,7 +61,7 @@ function NavTabs({ currentPage, handlePageChange }) {
                             ? <div className="buttons">
                                 <span className='username'>username</span>
                                 <Link to="" >
-                                    <a className="button is-light" onClick={() => handlePageChange(logout)}>Log out</a>
+                                    <a className="button is-light" onClick={(Auth.logout) } >Logout</a>
                                 </Link>
                             </div>
                             : <div className="buttons">
