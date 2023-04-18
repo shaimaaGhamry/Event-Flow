@@ -20,7 +20,7 @@ const MyTasks = () => {
           {completedTasks.map((app) => <App description={app.description} event={app.event} title={app.title} owner={app.owner} date={app.date} completed={app.completed} id={app.id} />)}
         </div>
       </div>
-      <div className="right-panel actions">
+      <div className="actions">
         <Link to='/CreateTask' className="div-button">
           <div className="create-button">
             <p>Create</p>

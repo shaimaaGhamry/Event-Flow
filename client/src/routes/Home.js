@@ -14,7 +14,7 @@ const Home = () => {
           <PublicEvents events={events} />
         </div>
       </div>
-      <div className="right-panel actions">
+      <div className="actions">
         <Link to="/CreateEvent" className="div-button">
           <div className="create-button">
             <p>Create</p>
