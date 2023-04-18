@@ -1,18 +1,15 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import Auth from '../utils/auth';
+
+const isLoggedIn = false;
 
 function NavTabs({ currentPage, handlePageChange }) {
-    const logout = (event) => {
-        event.preventDefault();
-        Auth.logout();
-    };
     return (
         <nav className="navbar" role="navigation" aria-label="main navigation" >
             <div className="navbar-brand">
                 <Link to="./" className="navbar-item">
                     <a onClick={() => handlePageChange('Home')}>
-                        <img src="logo192.png" className="nav-logo"></img>
+                    <img src="logo192.png" className="nav-logo"></img>
                     </a>
                 </Link>
 
@@ -57,11 +54,11 @@ function NavTabs({ currentPage, handlePageChange }) {
             <div id="navbarBasicExample" className="navbar-menu">
                 <div className="navbar-end">
                     <div className="navbar-item">
-                        {Auth.loggedIn()
+                        {isLoggedIn
                             ? <div className="buttons">
                                 <span className='username'>username</span>
                                 <Link to="" >
-                                    <a className="button is-light" onClick={() => handlePageChange(logout)}>Log out</a>
+                                    <a className="button is-light" onClick={() => handlePageChange('Logout')}>Log out</a>
                                 </Link>
                             </div>
                             : <div className="buttons">
