@@ -10,7 +10,7 @@ import Auth from '../utils/auth';
 
 const SignUp = () => {
   const [formState, setFormState] = useState({
-    username: '',
+    userName: '',
     email: '',
     password: '',
   });
@@ -33,7 +33,7 @@ const SignUp = () => {
       const { data } = await addUser({
         variables: { ...formState },
       });
-
+     console.log(data);
       Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
@@ -41,10 +41,10 @@ const SignUp = () => {
   };
 
   return (
-    <div class="hero is-fullheight">
+    <div className="hero is-fullheight">
       <h2>SignUp</h2>
-      <div class="hero-body is-justify-content-center is-align-items-center">
-        <div class="columns is-flex is-flex-direction-column box">
+      <div className="hero-body is-justify-content-center is-align-items-center">
+        <div className="columns is-flex is-flex-direction-column box">
         {data ? (
               <p>
                 Success! You may now{' '}
@@ -52,10 +52,10 @@ const SignUp = () => {
               </p>
             ) : (
           <form onSubmit={handleFormSubmit}>
-            <div class="column">
+            <div className="column">
               <label for="email">Name</label>
-              <input class="input is-primary" type="text" placeholder="Name"
-                name="username" value={formState.name} onChange={handleChange}>
+              <input className="input is-primary" type="text" placeholder="Name"
+                name="userName" value={formState.name} onChange={handleChange}>
               </input>
             </div>
             {/* <div class="column">
@@ -65,33 +65,33 @@ const SignUp = () => {
               onChange={handleChange} >
               </input>
             </div> */}
-            <div class="column">
+            <div className="column">
               <label for="email">Email</label>
-              <input class="input is-primary" type="text" placeholder="Last Name"
+              <input className="input is-primary" type="text" placeholder="Last Name"
               name="email"  value={formState.email}
               onChange={handleChange}>
               </input>
             </div>
-            <div class="column">
+            <div className="column">
               <label for="Name">Password</label>
-              <input class="input is-primary" type="password" placeholder="Password"
+              <input className="input is-primary" type="password" placeholder="Password"
               name="password" value={formState.password}
               onChange={handleChange} >
               </input>
             </div>
-            <div class="column">
+            <div className="column">
               <label for="Name">Password Again</label>
-              <input class="input is-primary" type="password" placeholder="Password"
+              <input className="input is-primary" type="password" placeholder="Password"
               name="password" value={formState.password}
               onChange={handleChange} >
               </input>
             </div>
-            <div class="column">
-              <button class="button is-primary is-fullwidth" type="submit">Signup <a href='/myevents'></a>
+            <div className="column">
+              <button className="button is-primary is-fullwidth" type="submit"><a href='/myevents'>Signup </a>
               </button>
             </div>
-            <div class="has-text-centered">
-              <p class="is-size-7"> Already have an account? <a href='/loginform' class="has-text-primary">Login</a>
+            <div className="has-text-centered">
+              <p className="is-size-7"> Already have an account? <a href='/loginform' className="has-text-primary">Login</a>
               </p>
             </div>
           </form>

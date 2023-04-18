@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import Auth from '../utils/auth';
 
 const isLoggedIn = false;
 
@@ -54,11 +55,11 @@ function NavTabs({ currentPage, handlePageChange }) {
             <div id="navbarBasicExample" className="navbar-menu">
                 <div className="navbar-end">
                     <div className="navbar-item">
-                        {isLoggedIn
+                        {Auth.loggedIn()
                             ? <div className="buttons">
                                 <span className='username'>username</span>
                                 <Link to="" >
-                                    <a className="button is-light" onClick={() => handlePageChange('Logout')}>Log out</a>
+                                    <a className="button is-light" onClick={(Auth.logout) } >Logout</a>
                                 </Link>
                             </div>
                             : <div className="buttons">
