@@ -1,10 +1,19 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+// import { useQuery } from '@apollo/client';
 import Auth from '../utils/auth';
-
-const isLoggedIn = false;
+// import { LOGGED_IN_USER } from '../utils/queries';
 
 function NavTabs({ currentPage, handlePageChange }) {
+    // const loggedinId = Auth.getProfile().data._id;
+    // const { loading, data } = useQuery(LOGGED_IN_USER, {
+    //     variables: { userId: loggedinId },
+    //   });
+    // const loggedinUsername = data?.LoggedinUser || "";
+    // console.log(loggedinId);
+    // console.log(loggedinUsername.userName);
+    console.log(Auth.getToken());
+
     return (
         <nav className="navbar" role="navigation" aria-label="main navigation" >
             <div className="navbar-brand">
@@ -57,7 +66,7 @@ function NavTabs({ currentPage, handlePageChange }) {
                     <div className="navbar-item">
                         {Auth.loggedIn()
                             ? <div className="buttons">
-                                <span className='username'>username</span>
+                                <span className='username'>{Auth.getProfile().data.email}</span>
                                 <Link to="" >
                                     <a className="button is-light" onClick={(Auth.logout) } >Logout</a>
                                 </Link>

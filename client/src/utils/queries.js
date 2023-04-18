@@ -72,6 +72,14 @@ query Users {
   }
   `;
 
+export const LOGGED_IN_USER = gql`
+query LoggedinUser($userId: ID!) {
+  user(userId: $userId) {
+    _id
+    userName
+  }
+}`;
+
 export const ALL_EVENTS = gql`
 query events {
   events {
