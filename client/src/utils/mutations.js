@@ -24,33 +24,6 @@ mutation login($email: String!, $password: String!) {
     }
   }
   `;
-  export const UPDATE_EVENT = gql `updateEvent(id: $updateEventId, input: $input) {
-    _id
-    name
-    description
-    startDate
-    endDate
-    type
-    isPrivate
-    location
-    tasks {
-      id
-      title
-    }
-    invitees {
-      userName
-      id
-    }
-    createdBy {
-      userName
-      id
-    }
-    attendees {
-      userName
-      id
-    }
-  }
-}`;
 
   export const CREATE_EVENT = gql`
   mutation createEvent($input: EventInput!) {
@@ -127,7 +100,3 @@ mutation login($email: String!, $password: String!) {
     }
   }
   `;
-
-  /*
- 
-*/
