@@ -10,12 +10,16 @@ const eventSchema = new Schema({
     required: false
   },
   startDate: {
-    type: String,
-    required: true,
+    type: Date,
+    default: new Date(),
+    get: (startDate) => startDate.toDateString()
+
   },
   endDate: {
-    type: String,
-    required: true,
+    type: Date,
+    default: new Date(),
+    get: (endDate) => endDate.toDateString()
+
   },
   type: {
     type: String,

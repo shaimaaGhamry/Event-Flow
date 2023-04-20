@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const MyTasks = () => {
+  
   const taskList = [
     { title: "Buy ice", description: "Baby Shower", event: "ABC", owner: "Albus Dumbeldore", date: "15 Apr 2023", completed: false, id: 1 },
     { title: "Book tickets", description: "Trip", event: "DEF", owner: "Beatrix Lestrange", date: "20 Apr 2023", completed: false, id: 2 },

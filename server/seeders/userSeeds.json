@@ -18,35 +18,5 @@
         "userName": "Kent Clark",
         "email": "kclark@techfriends.dev",
         "password": "password04"
-      },
-      {
-        "userName": "Vicky Bello",
-        "email": "vbello@techfriends.dev",
-        "password": "password05"
-      },
-      {
-        "userName": "May Payne",
-        "email": "mpayne@techfriends.dev",
-        "password": "password06"
-      },
-      {
-        "userName": "Sicilia George",
-        "email": "sgeorge@techfriends.dev",
-        "password": "password07"
-      },
-      {
-        "userName": "David Wey",
-        "email": "dwey@techfriends.dev",
-        "password": "password08"
-      },
-      {
-        "userName": "Donald Dang",
-        "email": "ddang@techfriends.dev",
-        "password": "password09"
-      },
-      {
-        "userName": "Slovack Jean",
-        "email": "sjean@techfriends.dev",
-        "password": "password10"
       }
 ]

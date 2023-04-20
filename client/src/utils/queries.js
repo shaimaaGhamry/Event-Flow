@@ -2,62 +2,38 @@ import { gql } from '@apollo/client';
 
 export const All_Users = gql`
 query Users {
-    users {
-      id
-      userName
-      email
-      password
-      pendingEvents {
-        _id
-        name
-        description
-        startDate
-        endDate
-        type
-        isPrivate
-        location
-        createdBy {
-          id
-          userName
-          email
-          password
-        }
-        attendees {
-          id
-          userName
-          email
-          password
-        }
-        invitees {
-          id
-          userName
-          email
-          password
-        }
-      }
-      acceptedEvents {
-        _id
-        name
-        description
-        startDate
-        endDate
-        type
-        isPrivate
-        location
-      }
-      tasks {
+  users {
+    id
+    userName
+    email
+    password
+    pendingEvents {
+      _id
+      name
+      description
+      startDate
+      endDate
+      type
+      isPrivate
+      location
+      createdBy {
         id
-        title
-        description
-        assignedTo {
-          id
-          userName
-          email
-          password
-        }
-        deadline
-        completed
-        event {
+        userName
+        password
+        email
+      }
+      attendees {
+        id
+        email
+        userName
+        password
+      }
+      invitees {
+        id
+        userName
+        email
+        password
+        acceptedEvents {
           _id
           name
           description
@@ -67,9 +43,33 @@ query Users {
           isPrivate
           location
         }
+        tasks {
+          id
+          title
+          description
+          assignedTo {
+            id
+            userName
+            email
+            password
+          }
+          deadline
+          status
+          event {
+            _id
+            description
+            name
+            endDate
+            startDate
+            type
+            isPrivate
+            location
+          }
+        }
       }
     }
   }
+}
   `;
 
 export const LOGGED_IN_USER = gql`
@@ -81,7 +81,7 @@ query LoggedinUser($userId: ID!) {
 }`;
 
 export const ALL_EVENTS = gql`
-query events {
+query Events {
   events {
     _id
     name
@@ -108,10 +108,7 @@ query events {
       title
       description
       deadline
-      assignedTo {
-        userName
-      }
-      completed
+      
     }
   }
 }`

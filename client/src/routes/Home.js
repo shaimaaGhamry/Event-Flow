@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const { loading, data } = useQuery(ALL_EVENTS);
+  console.log(data);
   const events = data?.events || [];
   return (
     <div className="main events-main">

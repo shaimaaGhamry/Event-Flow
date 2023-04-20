@@ -100,3 +100,22 @@ mutation login($email: String!, $password: String!) {
     }
   }
   `;
+
+  export const CREATE_TASK = gql`
+  mutation CreateTask($title: String!, $description: String!, $assignedTo: ID!, $deadline: String!, $event: ID!) {
+    createTask(title: $title, description: $description, assignedTo: $assignedTo, deadline: $deadline, event: $event) {
+      title
+      description
+      assignedTo {
+        id
+        userName
+      }
+      deadline
+      event {
+        _id
+        name
+        
+      }
+    }
+  }
+  `;
