@@ -1,0 +1,40 @@
+[
+    {
+        "name": "Ladies hangout",
+        "description": "A time to relax and have fun at a beach resort",
+        "startDate": "May 11, 2023",
+        "endDate": "May 12, 2023",
+        "isPrivate": "true",
+        "location": "800 Gauvin Rd, Moncton NB E1A 1N1",
+        "type": "Trip"
+    },
+    {
+        "name": "Movie night",
+        "description": "A time to see a movie at a cinema",
+        "startDate": "May 5, 2023",
+        "endDate": "May 6, 2023",
+        "isPrivate": "true",
+        "location": "Cineplex, 800 Champlain Rd, Moncton NB E1A 5D3",
+         "type": "Proposal"
+    },
+    {
+        "name": "Explore 2023",
+        "description": "A company's annual conference",
+        "startDate": "June 5, 2023",
+        "endDate": "June 6, 2023",
+        "isPrivate": "true",
+        "location": "Coliseum, 377 Killam Dr, Moncton, NB E1C 3T1",
+        "type": "Conference"
+    },
+    {
+        "name": "Moncton FundRaising",
+        "description": "An event to raise funds for the food bank in the community",
+        "startDate": "August 5, 2023",
+        "endDate": "August 6, 2023",
+        "isPrivate": "true",
+        "location": "Coliseum, 377 Killam Dr, Moncton, NB E1C 3T1",
+         "type": "Business"
+    }
+    
+
+]

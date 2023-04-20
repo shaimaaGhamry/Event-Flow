@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Music arrangement",
+        "description": "Arrange for musicians and instruments to be used",
+        "deadline": "May 10, 2023",
+        "status": "pending"
+    },
+    {
+        "title": "Food logistics",
+        "description": "Contact every attendee to know what kind of food each person will be coming with",
+        "deadline": "May 8, 2023",
+        "status": "pending"
+    },
+    {
+        "title": "Transportation",
+        "description": "Plan how we would move tothe destination as a group",
+        "deadline": "May 8, 2023",
+        "status": "completed"
+    },
+    {
+        "title": "MC",
+        "description": "Get an MC for the event",
+        "deadline": "May 8, 2023",
+        "status": "completed"
+    }
+]

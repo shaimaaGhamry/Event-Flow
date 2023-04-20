@@ -1,3 +1,14 @@
+:root {
+  --is-light: #ffffff;
+  --is-primary: #00d1b2;
+  --is-public: rgb(205, 239, 239);
+  --is-private: rgb(243, 225, 212);
+  --is-expired: #e6e6e6;
+  --is-pending: rgb(254, 219, 219);
+  --text: #4a4a4a;
+  --yellow: #f5ba41;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +21,196 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.navbar-item img {
+  max-height: 8rem !important;
+}
+
+.space-nav {
+  width: 4rem;
+}
+
+.navbar {
+  background-color: teal !important;
+  padding-left: 1.2rem;
+}
+
+.main {
+  margin: 1rem;
+}
+
+.events-main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap-reverse;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+.events {
+  width: 75%;
+  padding-left: 1rem;
+  padding-right: 2rem;
+}
+
+.right-panel {
+  width: 25%;
+  display: flex;
+  padding-right: 1rem;
+}
+
+.actions {
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.lists {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.event-row {
+  border-style: solid;
+  border-width: 1.5px;
+  border-radius: 1rem;
+  border-color: rgb(197, 197, 197);
+  padding: 1rem;
+  padding-top: 2rem;
+}
+
+div.event-list {
+  margin-top: -2.8rem;
+  margin-left: 0.5rem;
+  margin-bottom: 0.7rem;
+}
+
+span.event-list {
+  background-color: var(--is-light);
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.event-row {
+  margin-bottom: 1.5rem;
+}
+
+p.invitees {
+  background-color: var(--is-expired);
+  border-radius: 0.3rem;
+  margin-bottom: 0.5rem;
+  padding: 0.23rem 0.6rem;
+  display: flex;
+}
+
+.checkmark {
+  flex: 1;
+  text-align: right;
+}
+
+.event-tasks {
+  margin-top: 2rem;
+}
+
+.subtitle {
+  margin-bottom: 0px !important;
+}
+
+.card {
+  margin-bottom: 0.5rem;
+}
+
+.public {
+  background-color: var(--is-public) !important;
+}
+
+.private {
+  background-color: var(--is-private) !important;
+}
+
+.expired, .true {
+  background-color: var(--is-expired) !important;
+}
+
+.false {
+  background-color: var(--is-pending) !important;
+}
+
+.message-header {
+  color: var(--text) !important;
+  padding: 1.2rem 1.5rem 1.5rem 1.5rem !important;
+}
+
+.message-body {
+  margin-top: -1.5rem;
+}
+
+.message-body > p {
+  margin-bottom: 0.7rem;
+}
+
+.details {
+  padding-left: 1rem;
+}
+
+.card-footer {
+  padding: 0.8rem;
+  display: flex;
+  justify-content: center;
+}
+
+.create-button {
+  margin-top: 2rem;
+  border-style: none;
+  border-radius: 4rem;
+  background-color: var(--is-primary);
+  padding: 1rem;
+  padding-top: 2.3rem;
+  width: 8rem;
+  height: 8rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+a.div-button {
+  color: var(--is-light);
+}
+
+details > summary::marker {
+  content: "";
+}
+
+.calendar .event-date {
+  font-family: 'IBM Plex Sans', sans-serif;
+  position: relative;
+  max-width: 1000px; /*change as per your design need */
+  min-width: 320px;
+  background: var(--calendar-bg-color);
+  color: var(--text);
+  margin: 20px auto;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-weight: bold;
+  border-radius: 10vh;
+}
+
+.buttons a {
+  margin-right: 0.5rem;
+}
+
+.username {
+  font-weight: bold;
+  color: var(--is-light);
+  margin-right: 1rem;
+}
+
+.is-current {
+  background-color: var(--is-light);
+}
+
+.nav-tabs {
+  margin-top: 6.2rem;
+  margin-bottom: 0rem !important;
 }
