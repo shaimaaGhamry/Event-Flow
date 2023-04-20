@@ -10,8 +10,6 @@ import SignUp from './components/SignUp';
 import LoginForm from './components/LoginForm';
 import CreateEvent from './components/CreateEvent';
 import CreateTask from './components/CreateTask';
-// FOR TESTING ONLY - DELETE LATER (also delete Route path - line 23)
-import TestEnv from './routes/testEnv';
 
 import { Route, Routes } from 'react-router-dom';
 
@@ -53,7 +51,6 @@ const App = () => {
        <Route path="/myevents" element={<MyEvents />} />
        <Route path="/mytasks" element={<MyTasks />} /> 
        <Route path="/event/:eventId" element={<Event />} />
-       <Route path="/testing" element={<TestEnv />} />
        <Route path="/signup" element={<SignUp />} />
        <Route path="/loginform" element={<LoginForm />} />
        <Route path="/CreateEvent" element={<CreateEvent />} />

@@ -1,21 +1,19 @@
 import React from 'react';
+import { useQuery } from '@apollo/client';
+import { ALL_EVENTS } from '../utils/queries';
 import { Link } from 'react-router-dom';
 
 const MyEvents = () => {
   const pendingInvites = [
-    { title: "ABC", type: "Baby Shower", owner: "Albus Dumbeldore", sdate: "15 Apr 2023", edate: "15 Apr 2023", id: "643f196afc50ec07503633d5" },
-    { title: "DEF", type: "Graduation", owner: "Beatrix Lestrange", sdate: "20 Apr 2023", edate: "20 Apr 2023", id: "643f196afc50ec07503633d6" },
-    { title: "GHI", type: "Trip", owner: "Colin Creevey", sdate: "28 Apr 2023", edate: "5 May 2023", id: "643f196afc50ec07503633d7" },
-    { title: "JKL", type: "Birthday", owner: "Draco Malfoy", sdate: "5 May 2023", edate: "5 May 2023", id: "643efa80a58ebacd7a84fabf" },
+    { title: "Ladies hangout", type: "Trip", owner: "Bruce Wayne", sdate: "Apr 30, 2023", edate: "May 02, 2023", id: "64415ea465b5a54d5c9d96ad" },
+    { title: "Movie night", type: "Proposal", owner: "Maxwell Slander", sdate: "May 04, 2023", edate: "May 04, 2023", id: "64415ea465b5a54d5c9d96ae" },
   ];
   const attendingEvents = [
-    { title: "MNO", type: "Baby Shower", owner: "Albus Dumbeldore", sdate: "15 Apr 2023", edate: "15 Apr 2023", scope: "public", id: "5" },
-    { title: "PQR", type: "Graduation", owner: "Beatrix Lestrange", sdate: "20 Apr 2023", edate: "20 Apr 2023", scope: "private", id: "6" },
-    { title: "STU", type: "Trip", owner: "Colin Creevey", sdate: "28 Apr 2023", edate: "5 May 2023", scope: "private", id: "7" },
-    { title: "VWX", type: "Birthday", owner: "Draco Malfoy", sdate: "5 May 2023", edate: "5 May 2023", scope: "public", id: "8" },
+    { title: "Movie night", type: "Proposal", owner: "Lucky Syatt", sdate: "May 06, 2023", edate: "May 06, 2023", scope: "private", id: "64415ea465b5a54d5c9d96af" },
+    { title: "Moncton FundRaising", type: "Business", owner: "Kent Clark", sdate: "Aug 05, 2023", edate: "Aug 06 2023", scope: "public", id: "64415ea465b5a54d5c9d96b0" },
   ];
   const expiredEvents = [
-    { title: "YZ", type: "Baby Shower", owner: "Albus Dumbeldore", sdate: "15 Apr 2023", edate: "15 Apr 2023", scope: "public", id: "9" },
+    { title: "Sample Expired Event", type: "Baby Shower", owner: "Albus Dumbeldore", sdate: "Apr 15, 2023", edate: "Apr 15, 2023", scope: "public", id: "9" },
   ];
   return (
     <div className="main events-main">
@@ -26,7 +24,7 @@ const MyEvents = () => {
         </div>
         <div className="row event-row attending">
           <div className="event-list"><p><span className="event-list">ATTENDING EVENTS</span></p></div>
-          {attendingEvents.map((app) => <App type={app.type} title={app.title} owner={app.owner} sdate={app.sdate} edate={app.edate} scope={app.scope} />)}
+          {attendingEvents.map((app) => <App type={app.type} title={app.title} owner={app.owner} sdate={app.sdate} edate={app.edate} id={app.id} scope={app.scope} />)}
           {expiredEvents.map((app) => <App type={app.type} title={app.title} owner={app.owner} sdate={app.sdate} edate={app.edate} scope="expired" />)}
         </div>
       </div>

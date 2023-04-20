@@ -5,13 +5,6 @@ import Auth from '../utils/auth';
 // import { LOGGED_IN_USER } from '../utils/queries';
 
 function NavTabs({ currentPage, handlePageChange }) {
-    // const loggedinId = Auth.getProfile().data._id;
-    // const { loading, data } = useQuery(LOGGED_IN_USER, {
-    //     variables: { userId: loggedinId },
-    //   });
-    // const loggedinUsername = data?.LoggedinUser || "";
-    // console.log(loggedinId);
-    // console.log(loggedinUsername.userName);
     console.log(Auth.getToken());
 
     return (
@@ -47,14 +40,6 @@ function NavTabs({ currentPage, handlePageChange }) {
                             <a onClick={() => handlePageChange('MyTasks')}>
                                 <span className="icon is-medium"><img src="./tasks.png" className="fas" aria-hidden="true"></img></span>
                                 <span><strong>My Tasks</strong></span>
-                            </a>
-                        </li>
-                    </Link>
-                    <Link to='/testing' className={currentPage === 'TestEnv' ? 'nav-link is-current' : 'nav-link'}>
-                        <li>
-                            <a onClick={() => handlePageChange('TestEnv')}>
-                                <span className="icon is-medium"><i className="fas fa-film" aria-hidden="true"></i></span>
-                                <span><strong>test environment</strong></span>
                             </a>
                         </li>
                     </Link>
