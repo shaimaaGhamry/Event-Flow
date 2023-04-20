@@ -42,9 +42,9 @@ const SignUp = () => {
 
   return (
     <div className="hero is-fullheight">
-      <h2>SignUp</h2>
       <div className="hero-body is-justify-content-center is-align-items-center">
-        <div className="columns is-flex is-flex-direction-column box">
+        <div className="signup columns is-flex is-flex-direction-column box">
+        <h1>Sign Up</h1>
         {data ? (
               <p>
                 Success! You may now{' '}

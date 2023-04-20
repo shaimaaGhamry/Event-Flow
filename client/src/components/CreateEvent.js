@@ -13,9 +13,9 @@ const CreateEvent = () => {
     return (
         
         <div class="hero is-fullheight">
-            <h1>Create an Event</h1>
             <div class="hero-body is-justify-content-center is-align-items-center">
-                <div class="columns is-flex is-flex-direction-column box">
+                <div class="create columns is-flex is-flex-direction-column box">
+                    <h1>Create an Event</h1>
                     <div class="column">
                         <label for="email">Title</label>
                         <input class="input is-primary" type="text" placeholder="Event Title"></input>

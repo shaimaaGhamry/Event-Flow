@@ -95,7 +95,14 @@ const EventInvitees = ({ invitees, attendees }) => {
 
 const EventTasks = ({ tasks }) => {
   return (
-    <p>task list here</p>
+    <>
+    <div>
+        <p className="invitees">Arrange for transport</p>
+      </div>
+      <div>
+        <p className="invitees">Bring snacks <span className="checkmark">&#x2713;</span></p>
+      </div>
+    </>
   )
 }
 

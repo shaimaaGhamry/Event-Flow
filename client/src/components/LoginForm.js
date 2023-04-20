@@ -45,10 +45,10 @@ const LoginForm = () => {
   return (
 
     <section class="hero  is-fullheight is-fullwidth">
-
       <div class="hero-body is-justify-content-center is-align-items-center">
-        <div class="columns is-flex is-flex-direction-column box">
-          <div class="box">
+        <div class="login columns is-flex is-flex-direction-column box">
+                    <h1>Login</h1>
+          <div class="box box2">
             {data ? (
               <p>
                 Success! You may view{' '}

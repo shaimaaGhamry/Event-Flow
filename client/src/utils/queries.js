@@ -138,4 +138,39 @@ export const EVENT_BY_ID = gql`
       }
     }
   }
-`;
+`
+export const ALL_TASKS = gql`
+query tasks {
+  tasks {
+    id
+    title
+    description
+    deadline
+    status
+    assignedTo {
+      id
+      userName
+    }
+    event {
+      _id
+      name
+    }
+  }
+}`
+
+export const MY_TASKS = gql`
+query Query($userId: ID!) {
+  user(userId: $userId) {
+    id
+    userName
+    tasks {
+      id
+      title
+      description
+      deadline
+      status
+    }
+  }
+}`
+
+;

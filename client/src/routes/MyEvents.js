@@ -5,12 +5,12 @@ import { Link } from 'react-router-dom';
 
 const MyEvents = () => {
   const pendingInvites = [
-    { title: "Ladies hangout", type: "Trip", owner: "Bruce Wayne", sdate: "Apr 30, 2023", edate: "May 02, 2023", id: "64415ea465b5a54d5c9d96ad" },
-    { title: "Movie night", type: "Proposal", owner: "Maxwell Slander", sdate: "May 04, 2023", edate: "May 04, 2023", id: "64415ea465b5a54d5c9d96ae" },
+    { title: "Ladies hangout", type: "Trip", owner: "Bruce Wayne", sdate: "Apr 30, 2023", edate: "May 02, 2023", id: "64418d4cddcaa0020ccefb9b" },
+    { title: "Movie night", type: "Proposal", owner: "Maxwell Slander", sdate: "May 04, 2023", edate: "May 04, 2023", id: "64418d4cddcaa0020ccefb9c" },
   ];
   const attendingEvents = [
-    { title: "Movie night", type: "Proposal", owner: "Lucky Syatt", sdate: "May 06, 2023", edate: "May 06, 2023", scope: "private", id: "64415ea465b5a54d5c9d96af" },
-    { title: "Moncton FundRaising", type: "Business", owner: "Kent Clark", sdate: "Aug 05, 2023", edate: "Aug 06 2023", scope: "public", id: "64415ea465b5a54d5c9d96b0" },
+    { title: "Movie night", type: "Proposal", owner: "Lucky Syatt", sdate: "May 06, 2023", edate: "May 06, 2023", scope: "private", id: "64418d4cddcaa0020ccefb9d" },
+    { title: "Moncton FundRaising", type: "Business", owner: "Kent Clark", sdate: "Aug 05, 2023", edate: "Aug 06 2023", scope: "public", id: "64418d4cddcaa0020ccefb9e" },
   ];
   const expiredEvents = [
     { title: "Sample Expired Event", type: "Baby Shower", owner: "Albus Dumbeldore", sdate: "Apr 15, 2023", edate: "Apr 15, 2023", scope: "public", id: "9" },
