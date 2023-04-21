@@ -5,36 +5,23 @@ const eventResolvers = {
             const events = await Event.find().populate('createdBy attendees invitees tasks');
             return events;
         },
-
+        eventsDesc: async () => {
+            const events = await Event.find().populate('createdBy attendees invitees tasks').sort({startDate:'desc'});
+            return events;
+        },
+        eventsAsc: async () => {
+            const events = await Event.find().populate('createdBy attendees invitees tasks').sort({startDate:'asc'});
+            return events;
+        },
         event: async (parent, { id }) => {
             const event = await Event.findById(id).populate('createdBy attendees invitees tasks');
             return event;
         },
     },
     Mutation: {
-        // createEvent: async (parent, { title, description, startDate, endDate, type, location , isPrivate,  invitees, attendees, tasks}, context) => {
-
-        //     if (!context.user) {
-        //         throw new Error('Authentication required.');
-        //     }
-        //     const event = new Event({
-        //         title,
-        //         description,
-        //         startDate,
-        //         endDate,
-        //         type,
-        //         location,
-        //         isPrivate,
-        //         createdBy: context.user._id,
-        //         attendees,
-        //         invitees,                
-        //         tasks
-        //     });
-        //     await event.save();
-        //     return event;
-        // },
-
+       
         createEvent: async (parent, { input }, context) => {
+            console.log("=====inside create event");
             if (!context.user) {
                 throw new Error('Authentication required.');
             }
@@ -44,7 +31,7 @@ const eventResolvers = {
             const event = await Event.create(input);
 
             await User.updateOne({ _id: event.createdBy }, { $push: { ownedEvents: event._id } });
-            await User.updateMany({ _id: { $in: event.attendees } }, { $push: { acceptedEvents: event._id } });
+            //await User.updateMany({ _id: { $in: event.attendees } }, { $push: { acceptedEvents: event._id } });
             await User.updateMany({ _id: { $in: event.invitees } }, { $push: { pendingEvents: event._id } });
 
             await event.populate('createdBy attendees invitees tasks');
@@ -57,44 +44,60 @@ const eventResolvers = {
 
         },
         
-        // updateEvent: async (parent, { id,  title, description, startDate, endDate, type, location , isPrivate,  invitees, attendees, tasks }, context) => {
-        //     if (!context.user) {
-        //         throw new Error('Authentication required.');
-        //     }
+       acceptPendingEvent: async (parent, {eventId}, context) => {
+            
+            if (!context.user) {
+                throw new Error('Authentication required.');
+            }
+            const event = await Event.findByIdAndUpdate(eventId,{
+                //$pull: {invitees: context.user._id},
+                $addToSet: { attendees: context.user._id },
+            }, {new: true }
+            );
+            
+            if (!event) {
+                throw new Error('Event not found.');
+            }
+            const updateUser = await User.findByIdAndUpdate(context.user._id,{
+                $pull:{pendingEvents: event._id},
+                $addToSet:{acceptedEvents: event._id}},
+                {new: true}
+                );
 
-        //     const event = await Event.findById(id);
-        //     if (!event) {
-        //         throw new Error('Event not found.');
-        //     }
-        //     if (!event.createdBy.equals(currentUser._id)) {
-        //         throw new Error('Only the owner of the event can update it.');
-        //     }
-        //     if (title) {
-        //         event.title = title;
-        //     }
-        //     if (description) {
-        //         event.description = description;
-        //     }
-        //     if (startDate) {
-        //         event.startDate = startDate;
-        //     }
-        //     if (endDate) {
-        //         event.endDate = endDate;
-        //     }
+                
+            await updateUser.populate('pendingEvents acceptedEvents ownedEvents tasks');
+                         
+            return updateUser;
+        },
 
-        //     if (type){
-        //         event.type = type;
-        //     }
-        //     if (location) {
-        //         event.location = location;
-        //     }
-        //     if(invitees){
-        //         event.invitees = invitees
-        //     }
+        declineEvent: async(parent, {eventId}, context) => {
+            console.log("DECLINE");
+            console.log(context.user);
+            if (!context.user) {
+                throw new Error('Authentication required.');
+            }
 
-        //     await event.save();
-        //     return event;
-        // },
+            const event = await Event.findByIdAndUpdate(eventId,{
+                $pull:{invitees: context.user._id, 
+                       attendees: context.user._id}},
+                {new: true}
+            );
+            
+            if(!event){
+                throw new Error('Event not found.');
+            }
+            
+            const updatedUser = await User.findByIdAndUpdate(context.user._id,{
+                $pull: {pendingEvents: event._id,
+                        acceptedEvents:event._id},
+            }, 
+            {new: true}).populate('pendingEvents acceptedEvents ownedEvents tasks');
+            
+
+
+            
+            return updatedUser;
+        },
 
         updateEvent: async (parent, { id, input }, context) => {
             if (!context.user) {
@@ -104,7 +107,7 @@ const eventResolvers = {
             if (!event) {
                 throw new Error('Event not found.');
             }
-            if (!event.owner.equals(context.user._id)) {
+            if (!event.createdBy.equals(context.user._id)) {
                 throw new Error('Only the owner of the event can update it.');
             }
             const updatedEvent = await Event.findByIdAndUpdate(id, input, { new: true }).populate('createdBy attendees invitees tasks');
@@ -120,7 +123,7 @@ const eventResolvers = {
             if (!event) {
                 throw new Error('Event not found.');
             }
-            if (!event.owner.equals(context.user._id)) {
+            if (!event.createdBy.equals(context.user._id)) {
                 throw new Error('Only the owner of the event can delete it.');
             }
 

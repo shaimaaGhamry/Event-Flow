@@ -1,5 +1,50 @@
 import { gql } from '@apollo/client';
 
+export const ALL_USERS_ID = gql`
+query users {
+  users {
+    id
+    userName
+  }
+}
+`;
+export const MY_ALL_EVENTS = gql`
+query MyALLEvents {
+  me {
+    pendingEvents {
+      _id
+      name
+      description
+      startDate
+      endDate
+      type
+      isPrivate
+      location
+      
+    }
+    acceptedEvents {
+      _id
+      name
+      description
+      startDate
+      endDate
+      type
+      isPrivate
+      location
+    }
+    ownedEvents {
+      _id
+      name
+      description
+      startDate
+      endDate
+      type
+      isPrivate
+      location
+    }
+  }
+}`;
+
 export const All_Users = gql`
 query Users {
   users {
@@ -114,63 +159,42 @@ query Events {
 }`
 
 export const EVENT_BY_ID = gql`
-  query event($eventId: ID!) {
-    event(id: $eventId) {
-      _id
-      name
-      description
-      startDate
-      endDate
-      type
-      isPrivate
-      location
-      invitees {
-        userName
-        id
-      }
-      createdBy {
-        userName
-        id
-      }
-      attendees {
-        userName
-        id
-      }
-    }
-  }
-`
-export const ALL_TASKS = gql`
-query tasks {
-  tasks {
-    id
-    title
+query event($eventId: ID!) {
+  event(id: $eventId) {
+    _id
+    name
     description
-    deadline
-    status
-    assignedTo {
-      id
-      userName
-    }
-    event {
-      _id
-      name
-    }
-  }
-}`
-
-export const MY_TASKS = gql`
-query Query($userId: ID!) {
-  user(userId: $userId) {
-    id
-    userName
-    tasks {
-      id
+    startDate
+    endDate
+    type
+    isPrivate
+    location
+    
+    tasks{
       title
       description
-      deadline
       status
+      deadline
+      
+    }
+
+    invitees {
+      userName
+      id
+    }
+
+    createdBy {
+      userName
+      id
+    }
+    
+    attendees {
+      userName
+      id
     }
   }
-}`
 
-;
+  }
+
+
+`;

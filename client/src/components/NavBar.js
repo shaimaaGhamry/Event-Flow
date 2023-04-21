@@ -5,6 +5,13 @@ import Auth from '../utils/auth';
 // import { LOGGED_IN_USER } from '../utils/queries';
 
 function NavTabs({ currentPage, handlePageChange }) {
+    // const loggedinId = Auth.getProfile().data._id;
+    // const { loading, data } = useQuery(LOGGED_IN_USER, {
+    //     variables: { userId: loggedinId },
+    //   });
+    // const loggedinUsername = data?.LoggedinUser || "";
+    // console.log(loggedinId);
+    // console.log(loggedinUsername.userName);
     console.log(Auth.getToken());
 
     return (
@@ -43,6 +50,7 @@ function NavTabs({ currentPage, handlePageChange }) {
                             </a>
                         </li>
                     </Link>
+                    
                 </ul>
             </div>
 
@@ -53,7 +61,7 @@ function NavTabs({ currentPage, handlePageChange }) {
                             ? <div className="buttons">
                                 <span className='username'>{Auth.getProfile().data.email}</span>
                                 <Link to="" >
-                                    <a className="button is-light" onClick={(Auth.logout) } >Logout</a>
+                                    <a className="button is-light" onClick={() => Auth.logout() } >Logout</a>
                                 </Link>
                             </div>
                             : <div className="buttons">

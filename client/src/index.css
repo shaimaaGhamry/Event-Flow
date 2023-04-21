@@ -214,33 +214,3 @@ details > summary::marker {
   margin-top: 6.2rem;
   margin-bottom: 0rem !important;
 }
-
-.signup, .login, .create {
-  margin-top: -10rem !important;
-}
-
-h1 {
-  text-align: center;
-  font-weight: bold !important;
-  font-size: 1.4rem !important;
-}
-
-.box2 {
-  margin-top: 0.8rem !important;
-}
-
-.create {
-  width: 60rem;
-}
-
-.box {
-  background-color: ivory !important;
-}
-
-.deadline {
-  margin-left: 4rem;
-}
-
-.cal {
-  margin-left: 2.5rem;
-}

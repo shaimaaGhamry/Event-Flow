@@ -31,11 +31,11 @@ if (element) {
 
 const AddTask = () => {
   const { data: data1 } = useQuery(ALL_EVENTS);
-  //   console.log(data1);
+//   console.log(data1);
   const events = data1?.events || [];
 
   const { data: data2 } = useQuery(All_Users);
-  //   console.log(data2);
+//   console.log(data2);
   const users = data2?.users || [];
 
   const OwnedEvents = ({ events }) => {
@@ -72,8 +72,11 @@ const AddTask = () => {
       <>
         {users &&
           users.map((user) => (
+            
             <>
-              {user.id === userID ? (
+              {
+              
+              user.id === userID ? (
                 ""
               ) : (
                 <option id={user.id} value={user.id}>{user.userName}</option>
@@ -91,7 +94,7 @@ const AddTask = () => {
     deadline: "",
     event: "",
   });
-
+ 
   const [createTask, { error }] = useMutation(CREATE_TASK);
 
   const handleSelectChange = (event) => {
@@ -112,7 +115,7 @@ const AddTask = () => {
 
   const navigate = useNavigate()
 
-
+ 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
@@ -121,8 +124,8 @@ const AddTask = () => {
       const data = await createTask({
         variables: { ...formState },
       });
-
-      // Auth.login(data.addUser.token);
+      
+        // Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);
     }
@@ -130,12 +133,9 @@ const AddTask = () => {
   };
 
   return (
-    <div class="hero is-fullheight">
-      <div class="hero-body is-justify-content-center is-align-items-center">
-        <div class="create columns is-flex is-flex-direction-column box">
-          <h1>Create a Task</h1>
-          {data1 && (
-            <form onSubmit={handleFormSubmit}>
+    <div className="hero-body is-justify-content-center is-align-items-center">
+         {data1 && (
+              <form onSubmit={handleFormSubmit}>
               <div className="field is-horizontal">
                 <div className="field-label is-normal">
                   <label className="label">Event</label>
@@ -166,33 +166,14 @@ const AddTask = () => {
                   <div className="field">
                     <div className="select is-normal is-primary">
                       <select
-                        name="assignedTo"
-                        className="form-select"
-                        value={formState.assignedTo}
-                        onChange={handleSelectChange}
+                      name="assignedTo"
+                      className="form-select"
+                      value={formState.assignedTo}
+                      onChange={handleSelectChange}
                       >
                         <option value="">Assign to a User</option>
                         <EventUsers users={users} />
                       </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="field is-horizontal">
-                <div className="field-label is-normal">
-                  <label className="label">Title</label>
-                </div>
-                <div className="field-body">
-                  <div className="field">
-                    <div className="control">
-                      <input
-                        className="input is-primary"
-                        type="text"
-                        placeholder="input task"
-                        name="title"
-                        value={formState.title}
-                        onChange={handleInputChange}
-                      ></input>
                     </div>
                   </div>
                 </div>
@@ -217,13 +198,31 @@ const AddTask = () => {
                 </div>
               </div>
               <div className="field is-horizontal">
-                <div className="deadline calendar">
+                <div className="field-label is-normal">
+                  <label className="label">Title</label>
+                </div>
+                <div className="field-body">
+                  <div className="field">
+                    <div className="control">
+                      <input
+                        className="input is-primary"
+                        type="text"
+                        placeholder="input task"
+                        name="title"
+                        value={formState.title}
+                        onChange={handleInputChange}
+                      ></input>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="field is-horizontal">
+                <div className="calendar">
                   <label for="date" className="event-date">
                     Deadline
                   </label>
                   <input
                     type="date"
-                    class="cal"
                     data-display-mode="inline"
                     data-is-range="true"
                     data-close-on-select="false"
@@ -249,16 +248,14 @@ const AddTask = () => {
                 </div>
               </div>
             </form>
-          )
-
-          }
-          {error && (
-            <div className="my-3 p-3 is-danger text-white">
-              {error.message}
-            </div>
-          )}
-        </div>
-      </div>
+               )
+     
+       }
+       {error && (
+       <div className="my-3 p-3 is-danger text-white">
+         {error.message}
+       </div>
+   )}
     </div>
   );
 };

@@ -11,6 +11,7 @@ mutation login($email: String!, $password: String!) {
     }
   }
   `;
+  
 
   export const ADD_USER = gql`
    mutation addUser($userName: String!, $email: String!, $password: String!) {
@@ -30,77 +31,21 @@ mutation login($email: String!, $password: String!) {
     createEvent(input: $input) {
       _id
       name
-      description
-      startDate
-      endDate
-      type
-      isPrivate
-      location
-      createdBy {
-        id
-        userName
-        email
-        password
-        pendingEvents {
-          _id
-          name
-          description
-          startDate
-          endDate
-          type
-          isPrivate
-          location
-        }
-        acceptedEvents {
-          _id
-          name
-          description
-          startDate
-          endDate
-          type
-          isPrivate
-          location
-        }
-      }
-      attendees {
-        id
-        userName
-        email
-        password
-      }
-      invitees {
-        id
-        userName
-        email
-        password
-      }
-      tasks {
-        id
-        title
-        description
-        assignedTo {
-          id
-          userName
-          email
-          password
-        }
-        deadline
-        completed
-        event {
-          _id
-          name
-          description
-          startDate
-          endDate
-          type
-          isPrivate
-          location
-        }
+    }
+  }
+  `;
+  export const ACCEPTE_EVENT = gql`
+  mutation acceptPendingEvent($eventId: ID!) {
+    acceptPendingEvent(eventId: $eventId) {
+      id
+      userName
+      acceptedEvents {
+        _id
+        
       }
     }
   }
   `;
-
   export const CREATE_TASK = gql`
   mutation CreateTask($title: String!, $description: String!, $assignedTo: ID!, $deadline: String!, $event: ID!) {
     createTask(title: $title, description: $description, assignedTo: $assignedTo, deadline: $deadline, event: $event) {
@@ -116,6 +61,15 @@ mutation login($email: String!, $password: String!) {
         name
         
       }
+    }
+  }
+  `;
+
+  export const  DECLINE_EVENT = gql`
+  mutation DeclineEvent($eventId: ID!) {
+    declineEvent(eventId: $eventId) {
+      id
+      userName
     }
   }
   `;

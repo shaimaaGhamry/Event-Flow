@@ -47,6 +47,9 @@ const typeDefs = gql`
     event: Event!
   }
 
+
+
+
   type User {
     id: ID!
     userName: String!

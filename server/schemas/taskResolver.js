@@ -30,7 +30,7 @@ const taskResolvers = {
 
         await User.findByIdAndUpdate(assignedTo, { $push: { tasks: task } });
         await Event.findByIdAndUpdate(event, { $push: { tasks: task } });
-        return task;
+        return await task;
       } catch (err) {
         throw new Error(err);
       }

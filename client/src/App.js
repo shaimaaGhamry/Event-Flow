@@ -11,7 +11,7 @@ import LoginForm from './components/LoginForm';
 import CreateEvent from './components/CreateEvent';
 import CreateTask from './components/CreateTask';
 
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -45,6 +45,8 @@ const App = () => {
 
   return (
     <ApolloProvider client={client}>
+    <Router>
+      <>
       <NavTabs currentPage={currentPage} handlePageChange={handlePageChange} />
       <Routes>
        <Route path="/" element={<Home />} />
@@ -56,6 +58,8 @@ const App = () => {
        <Route path="/CreateEvent" element={<CreateEvent />} />
        <Route path="/CreateTask" element={<CreateTask />} />
      </Routes>
+     </>
+     </Router>
     </ApolloProvider>
   );
 }

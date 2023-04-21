@@ -1,18 +1,57 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { useQuery } from '@apollo/client';
+import { useMutation, useQuery } from '@apollo/client';
 import { EVENT_BY_ID } from '../utils/queries';
+import auth from '../utils/auth';
+import { ACCEPTE_EVENT, DECLINE_EVENT } from '../utils/mutations';
 
 const Event = () => {
+  const loggedIn = auth.getProfile().data._id;
+  console.log(loggedIn);
+const [acceptPendingEvent, {error}] = useMutation(ACCEPTE_EVENT);
+const [declineEvent, {error2}] = useMutation(DECLINE_EVENT);
+
 
   const { eventId } = useParams();
   const { loading, data } = useQuery(EVENT_BY_ID, {
     variables: { eventId: eventId },
   });
   const event = data?.event || {};
-
+console.log(event._id);
   if (loading) {
     return <div>Loading...</div>;
+  }
+  const attendeesList = event.attendees.map((attendee) => {return attendee.id});
+console.log(attendeesList);
+  async function handleAccept() {
+    console.log("Handle Accept");
+
+    try {
+      const data = await acceptPendingEvent({
+        variables:{
+          eventId:eventId
+        }
+      });
+
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async function handleDecline() {
+    console.log("Handle Decline");
+    try {
+      const data = await declineEvent({
+        variables:{
+          eventId:eventId
+        }
+      });
+
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <div className="main events-main">
@@ -32,19 +71,35 @@ const Event = () => {
           </div>
           <footer class="card-footer">
             <div className="buttons">
-              {event.isPrivate ? "" :
+              {event.isPrivate
+                ? ""
+                :
                 <Link to="">
                   <a className="button is-primary">Join</a>
-                </Link>}
-              <Link to="">
-                <a className="button is-primary">Edit</a>
-              </Link>
-              <Link to="">
-                <a className="button is-primary">Accept Invite</a>
-              </Link>
-              <Link to="">
-                <a className="button is-primary">Decline Invite</a>
-              </Link>
+                </Link>
+              }
+              {event.createdBy.id === loggedIn
+                ?
+                <Link to="">
+                  <a className="button is-primary">Edit</a>
+                </Link>
+                :
+                ""
+              }
+              {
+                attendeesList.includes(loggedIn)
+                  ?
+                  <Link to="/myevents">
+                    <button className="button is-primary" onClick={() => handleDecline()}>Decline </button>
+                  </Link>
+                  :
+                  <Link to="/myevents">
+                    <button className="button is-primary" onClick={() => handleAccept()}>Accept </button>
+                  </Link>
+              }
+
+
+
             </div>
           </footer>
         </article>
@@ -95,14 +150,21 @@ const EventInvitees = ({ invitees, attendees }) => {
 
 const EventTasks = ({ tasks }) => {
   return (
-    <>
     <div>
-        <p className="invitees">Arrange for transport</p>
-      </div>
-      <div>
-        <p className="invitees">Bring snacks <span className="checkmark">&#x2713;</span></p>
-      </div>
-    </>
+      <ol>
+
+
+        {tasks.map((task) => (
+          <li>
+            <div>{task.title}</div>
+            <div>{task.description}</div>
+            <div>{task.deadline}</div>
+            <div>{task.status}</div>
+          </li>
+        ))}
+      </ol>
+
+    </div>
   )
 }
 

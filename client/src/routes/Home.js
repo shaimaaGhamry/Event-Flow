@@ -10,19 +10,19 @@ const Home = () => {
   return (
     <div className="main events-main">
       <div className="events">
-        <div className="title is-4">Events that you might be interested in:</div>
+        <div className="title is-4">Public Events that you might be interested in:</div>
         <div className="row">
           <PublicEvents events={events} />
         </div>
       </div>
-      <div className="right-panel actions">
+      {/* <div className="right-panel actions">
         <Link to="/CreateEvent" className="div-button">
           <div className="create-button">
             <p>Create</p>
             <p>New Event</p>
           </div>
         </Link>
-      </div>
+      </div> */}
     </div>
   );
 }
