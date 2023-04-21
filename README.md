@@ -9,7 +9,7 @@ This project is designed to enable users create events and invite other users. T
 
 User can clone the repo from https://github.com/mdpais/Event-Flow and install dependencies in the terminal and run build.
 
-Or simply go to https://event-flow-md.herokuapp.com/
+Or simply go to https://github.com/mdpais/Event-Flow
 
 ## Usage
 
