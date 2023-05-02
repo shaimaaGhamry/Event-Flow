@@ -14,6 +14,7 @@ const eventResolvers = {
             return events;
         },
         event: async (parent, { id }) => {
+            console.log("INSIDE EVENT BY ID");
             const event = await Event.findById(id).populate('createdBy attendees invitees tasks');
             return event;
         },

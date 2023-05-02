@@ -12,10 +12,17 @@ const userResolvers = {
             return await User.findOne({ _id: userId }).populate('pendingEvents acceptedEvents ownedEvents tasks');
         },
         me: async (parent, args, context) => {
+            console.log("INSIDE ME ");
             if (context.user) {
-                return await User.findOne({ _id: context.user._id }).populate('pendingEvents acceptedEvents ownedEvents tasks');
-              }
-              throw new AuthenticationError('You need to be logged in!');
+                try {
+                    const result =  await User.findOne({ _id: context.user._id }).populate('pendingEvents acceptedEvents ownedEvents tasks');
+                    console.log(result);
+                    return result;
+                } catch (error) {
+                    console.log(err);
+                }
+            }
+            throw new AuthenticationError('You need to be logged in!');
         }
     },
     Mutation: {

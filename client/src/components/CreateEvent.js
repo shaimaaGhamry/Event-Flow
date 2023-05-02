@@ -22,7 +22,7 @@ function CreateEvent() {
     const [createEvent, { eventError, data }] = useMutation(CREATE_EVENT, {
         onCompleted: () => {
           // Once the mutation is completed, set redirect to true
-          <Navigate to="/myevents"></Navigate>
+          <Navigate to="/myevents" replace={true}></Navigate>
         },});
 
 
@@ -36,7 +36,7 @@ function CreateEvent() {
     if (usersError)
         return <p>Error loading users</p>;
 
-if (data) return <Navigate to="/myevents"/>
+if (data) return <Navigate to="/myevents" />
 
     function addSelectedUsert(event) {
         const optionElem = document.getElementById(event.target.id);
@@ -55,6 +55,7 @@ if (data) return <Navigate to="/myevents"/>
 
         event.preventDefault();
         console.log("The form has been submitted");
+        //console.log(event.target.isPrivate.checked);
         const selectedinvitees = Array.from(event.target.invitees.selectedOptions).map(option => option.value);
 
 
@@ -64,7 +65,7 @@ if (data) return <Navigate to="/myevents"/>
             type: event.target.type.value,
             startDate: event.target.startDate.value,
             endDate: event.target.endDate.value,
-            isPrivate: (event.target.isPrivate.value == 'on') ? true : false,
+            isPrivate: event.target.isPrivate.checked,
             invitees: selectedinvitees,
             location: '',
             createdBy: loggedIn,

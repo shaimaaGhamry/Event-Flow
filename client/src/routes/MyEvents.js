@@ -17,22 +17,6 @@ const MyEvents = () => {
   console.log(my_accepted_events);
   console.log(my_owned_events);
 
-  // const my_pending_events = [
-  //   { title: "ABC", type: "Baby Shower", owner: "Albus Dumbeldore", sdate: "15 Apr 2023", edate: "15 Apr 2023", id: "643f196afc50ec07503633d5" },
-  //   { title: "DEF", type: "Graduation", owner: "Beatrix Lestrange", sdate: "20 Apr 2023", edate: "20 Apr 2023", id: "643f196afc50ec07503633d6" },
-  //   { title: "GHI", type: "Trip", owner: "Colin Creevey", sdate: "28 Apr 2023", edate: "5 May 2023", id: "643f196afc50ec07503633d7" },
-  //   { title: "JKL", type: "Birthday", owner: "Draco Malfoy", sdate: "5 May 2023", edate: "5 May 2023", id: "643efa80a58ebacd7a84fabf" },
-  // ];
-  // const my_accepted_events = [
-  //   { title: "MNO", type: "Baby Shower", owner: "Albus Dumbeldore", sdate: "15 Apr 2023", edate: "15 Apr 2023", scope: "public", id: "5" },
-  //   { title: "PQR", type: "Graduation", owner: "Beatrix Lestrange", sdate: "20 Apr 2023", edate: "20 Apr 2023", scope: "private", id: "6" },
-  //   { title: "STU", type: "Trip", owner: "Colin Creevey", sdate: "28 Apr 2023", edate: "5 May 2023", scope: "private", id: "7" },
-  //   { title: "VWX", type: "Birthday", owner: "Draco Malfoy", sdate: "5 May 2023", edate: "5 May 2023", scope: "public", id: "8" },
-  // ];
-
-  const expiredEvents = [
-    { title: "YZ", type: "Baby Shower", owner: "Albus Dumbeldore", sdate: "15 Apr 2023", edate: "15 Apr 2023", scope: "public", id: "9" },
-  ];
   if(!auth.loggedIn()){ 
     return (<div>You have to log in first</div>);
   }
@@ -81,7 +65,7 @@ function App(props) {
             </figure>
           </div> */}
               <div className="media-content">
-                <p className="title is-4">{props.title}{props.id}</p>
+                <p className="title is-4">{props.title}</p>
                 <p className="subtitle is-6">({props.type})</p>
                 <p className="subtitle is-6"> Starts on <b>{props.sdate}</b> and ends on <b>{props.edate}</b></p>
               </div>

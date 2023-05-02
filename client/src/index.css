@@ -130,11 +130,11 @@ p.invitees {
   background-color: var(--is-private) !important;
 }
 
-.expired, .true {
+.expired, .completed {
   background-color: var(--is-expired) !important;
 }
 
-.false {
+.pending {
   background-color: var(--is-pending) !important;
 }
 

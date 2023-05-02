@@ -8,6 +8,24 @@ query users {
   }
 }
 `;
+export const MY_TASKS = gql`
+query Query {
+  me {
+    tasks {
+      id
+      title
+      description
+      
+      status
+      deadline
+      event {
+        _id
+        
+      }
+    }
+  }
+}
+`;
 export const MY_ALL_EVENTS = gql`
 query MyALLEvents {
   me {
@@ -156,7 +174,8 @@ query Events {
       
     }
   }
-}`
+}
+`;
 
 export const EVENT_BY_ID = gql`
 query event($eventId: ID!) {
